@@ -1,0 +1,13 @@
+########################################################################
+#
+#    FILE: Collection definition file
+#  VENDOR: Altera
+# PROGRAM: Quartus II
+# VERSION: Version 10.0 Build 262 08/18/2010 Service Pack 1 SJ Full Version
+#    DATE: Sun Dec 13 00:34:58 2015
+#
+########################################################################
+
+
+set col(_col0) { port { 1466 } }
+set col(_col1) { pin { {598 REGOUT -1} {597 REGOUT -1} {596 REGOUT -1} {595 REGOUT -1} {594 REGOUT -1} {593 REGOUT -1} {592 REGOUT -1} {591 REGOUT -1} } }

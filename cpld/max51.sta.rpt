@@ -1,0 +1,1243 @@
+TimeQuest Timing Analyzer report for max51
+Sun Dec 13 00:34:59 2015
+Quartus II Version 10.0 Build 262 08/18/2010 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Fmax Summary
+  7. Setup Summary
+  8. Hold Summary
+  9. Recovery Summary
+ 10. Removal Summary
+ 11. Minimum Pulse Width Summary
+ 12. Setup: 'clk_sys'
+ 13. Setup: 'spi_clk'
+ 14. Hold: 'spi_clk'
+ 15. Hold: 'clk_sys'
+ 16. Minimum Pulse Width: 'spi_clk'
+ 17. Minimum Pulse Width: 'clk_sys'
+ 18. Setup Times
+ 19. Hold Times
+ 20. Clock to Output Times
+ 21. Minimum Clock to Output Times
+ 22. Propagation Delay
+ 23. Minimum Propagation Delay
+ 24. Setup Transfers
+ 25. Hold Transfers
+ 26. Report TCCS
+ 27. Report RSKM
+ 28. Unconstrained Paths
+ 29. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                     ;
++--------------------+------------------------------------------------------------------+
+; Quartus II Version ; Version 10.0 Build 262 08/18/2010 Service Pack 1 SJ Full Version ;
+; Revision Name      ; max51                                                            ;
+; Device Family      ; MAX II                                                           ;
+; Device Name        ; EPM1270T144C5                                                    ;
+; Timing Models      ; Final                                                            ;
+; Delay Model        ; Slow Model                                                       ;
+; Rise/Fall Delays   ; Unavailable                                                      ;
++--------------------+------------------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------+
+; SDC File List                                     ;
++---------------+--------+--------------------------+
+; SDC File Path ; Status ; Read at                  ;
++---------------+--------+--------------------------+
+; max51.sdc     ; OK     ; Sun Dec 13 00:34:58 2015 ;
++---------------+--------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++------------+-----------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+---------+-----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Name ; Type      ; Period ; Frequency ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master  ; Source    ; Targets                                                                                                                                                                                                                                                                                                                     ;
++------------+-----------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+---------+-----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; clk_sys    ; Base      ; 25.000 ; 40.0 MHz  ; 0.000 ; 12.500 ;            ;           ;             ;       ;        ;           ;            ;          ;         ;           ; { CLK_50M_i }                                                                                                                                                                                                                                                                                                               ;
+; spi_clk    ; Generated ; 25.000 ; 40.0 MHz  ; 0.000 ; 12.500 ;            ; 1         ; 1           ;       ;        ;           ;            ; false    ; clk_sys ; CLK_50M_i ; { inst_sd|inst_sd_ctrl|clk_cnt[0]|regout inst_sd|inst_sd_ctrl|clk_cnt[1]|regout inst_sd|inst_sd_ctrl|clk_cnt[2]|regout inst_sd|inst_sd_ctrl|clk_cnt[3]|regout inst_sd|inst_sd_ctrl|clk_cnt[4]|regout inst_sd|inst_sd_ctrl|clk_cnt[5]|regout inst_sd|inst_sd_ctrl|clk_cnt[6]|regout inst_sd|inst_sd_ctrl|clk_cnt[7]|regout } ;
++------------+-----------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+---------+-----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------+
+; Fmax Summary                                    ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 62.53 MHz ; 62.53 MHz       ; spi_clk    ;      ;
+; 90.12 MHz ; 90.12 MHz       ; clk_sys    ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------+
+; Setup Summary                   ;
++---------+-------+---------------+
+; Clock   ; Slack ; End Point TNS ;
++---------+-------+---------------+
+; clk_sys ; 5.787 ; 0.000         ;
+; spi_clk ; 9.008 ; 0.000         ;
++---------+-------+---------------+
+
+
++----------------------------------+
+; Hold Summary                     ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; spi_clk ; -5.637 ; -17.792       ;
+; clk_sys ; 1.414  ; 0.000         ;
++---------+--------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++----------------------------------+
+; Minimum Pulse Width Summary      ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; spi_clk ; 9.765  ; 0.000         ;
+; clk_sys ; 12.234 ; 0.000         ;
++---------+--------+---------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk_sys'                                                                                                                                                                             ;
++--------+------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                            ; To Node                                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 5.787  ; inst_sd|inst_sd_ctrl|clk_cnt[0]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[5]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 6.004      ;
+; 5.787  ; inst_sd|inst_sd_ctrl|clk_cnt[0]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 6.004      ;
+; 5.787  ; inst_sd|inst_sd_ctrl|clk_cnt[0]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 6.004      ;
+; 6.254  ; inst_sd|inst_sd_ctrl|clk_cnt[0]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[4]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 5.537      ;
+; 6.377  ; inst_sd|inst_sd_ctrl|clk_cnt[0]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[3]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 5.414      ;
+; 6.500  ; inst_sd|inst_sd_ctrl|clk_cnt[0]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[2]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 5.291      ;
+; 7.456  ; inst_sd|inst_sd_ctrl|clk_cnt[0]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[1]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 4.335      ;
+; 8.260  ; inst_sd|inst_sd_ctrl|clk_cnt[1]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[5]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.531      ;
+; 8.260  ; inst_sd|inst_sd_ctrl|clk_cnt[1]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.531      ;
+; 8.260  ; inst_sd|inst_sd_ctrl|clk_cnt[1]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.531      ;
+; 8.290  ; inst_sd|inst_sd_ctrl|clk_cnt[3]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[5]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.501      ;
+; 8.290  ; inst_sd|inst_sd_ctrl|clk_cnt[3]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.501      ;
+; 8.290  ; inst_sd|inst_sd_ctrl|clk_cnt[3]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.501      ;
+; 8.374  ; inst_sd|inst_sd_ctrl|clk_cnt[2]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[5]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.417      ;
+; 8.374  ; inst_sd|inst_sd_ctrl|clk_cnt[2]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.417      ;
+; 8.374  ; inst_sd|inst_sd_ctrl|clk_cnt[2]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.417      ;
+; 8.412  ; inst_sd|inst_sd_ctrl|clk_cnt[4]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[5]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.379      ;
+; 8.412  ; inst_sd|inst_sd_ctrl|clk_cnt[4]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.379      ;
+; 8.412  ; inst_sd|inst_sd_ctrl|clk_cnt[4]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.379      ;
+; 8.596  ; inst_sd|inst_sd_ctrl|clk_cnt[5]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.195      ;
+; 8.719  ; inst_sd|inst_sd_ctrl|clk_cnt[5]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.072      ;
+; 8.719  ; inst_sd|inst_sd_ctrl|clk_cnt[6]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.072      ;
+; 8.727  ; inst_sd|inst_sd_ctrl|clk_cnt[1]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[4]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.064      ;
+; 8.757  ; inst_sd|inst_sd_ctrl|clk_cnt[3]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[4]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 3.034      ;
+; 8.841  ; inst_sd|inst_sd_ctrl|clk_cnt[2]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[4]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 2.950      ;
+; 8.850  ; inst_sd|inst_sd_ctrl|clk_cnt[1]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[3]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 2.941      ;
+; 8.964  ; inst_sd|inst_sd_ctrl|clk_cnt[2]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[3]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 2.827      ;
+; 8.973  ; inst_sd|inst_sd_ctrl|clk_cnt[1]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[2]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 2.818      ;
+; 9.673  ; inst_sd|inst_sd_ctrl|clk_cnt[4]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[4]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 2.118      ;
+; 9.675  ; inst_sd|inst_sd_ctrl|clk_cnt[5]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[5]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 2.116      ;
+; 9.675  ; inst_sd|inst_sd_ctrl|clk_cnt[6]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 2.116      ;
+; 9.713  ; inst_sd|inst_sd_ctrl|clk_cnt[3]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[3]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 2.078      ;
+; 9.811  ; inst_sd|inst_sd_ctrl|clk_cnt[2]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[2]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 1.980      ;
+; 9.820  ; inst_sd|inst_sd_ctrl|clk_cnt[1]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[1]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 1.971      ;
+; 9.820  ; inst_sd|inst_sd_ctrl|clk_cnt[7]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 1.971      ;
+; 10.306 ; inst_sd|inst_sd_ctrl|clk_cnt[0]|regout               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[0]             ; spi_clk      ; clk_sys     ; 12.500       ; -0.376     ; 1.485      ;
+; 13.904 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[9]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.763     ;
+; 13.904 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[10]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.763     ;
+; 13.904 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[11]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.763     ;
+; 13.904 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.763     ;
+; 13.904 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[8]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.763     ;
+; 13.904 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[13]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.763     ;
+; 13.904 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[14]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.763     ;
+; 13.904 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[15]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.763     ;
+; 14.214 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[9]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.453     ;
+; 14.214 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[10]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.453     ;
+; 14.214 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[11]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.453     ;
+; 14.214 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.453     ;
+; 14.214 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[8]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.453     ;
+; 14.214 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[13]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.453     ;
+; 14.214 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[14]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.453     ;
+; 14.214 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[15]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.453     ;
+; 14.341 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.326     ;
+; 14.341 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.326     ;
+; 14.341 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.326     ;
+; 14.341 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.326     ;
+; 14.341 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.326     ;
+; 14.341 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[2]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.326     ;
+; 14.341 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[1]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.326     ;
+; 14.341 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.326     ;
+; 14.584 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[9]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.083     ;
+; 14.584 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[10]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.083     ;
+; 14.584 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[11]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.083     ;
+; 14.584 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.083     ;
+; 14.584 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[8]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.083     ;
+; 14.584 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[13]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.083     ;
+; 14.584 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[14]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.083     ;
+; 14.584 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[15]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.083     ;
+; 14.651 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.016     ;
+; 14.651 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.016     ;
+; 14.651 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.016     ;
+; 14.651 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.016     ;
+; 14.651 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.016     ;
+; 14.651 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[2]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.016     ;
+; 14.651 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[1]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.016     ;
+; 14.651 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 10.016     ;
+; 14.769 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.898      ;
+; 15.021 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.646      ;
+; 15.021 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.646      ;
+; 15.021 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.646      ;
+; 15.021 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.646      ;
+; 15.021 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.646      ;
+; 15.021 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[2]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.646      ;
+; 15.021 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[1]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.646      ;
+; 15.021 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.646      ;
+; 15.032 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[9]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.635      ;
+; 15.032 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[10]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.635      ;
+; 15.032 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[11]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.635      ;
+; 15.032 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.635      ;
+; 15.032 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[8]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.635      ;
+; 15.032 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[13]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.635      ;
+; 15.032 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[14]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.635      ;
+; 15.032 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[15]  ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.635      ;
+; 15.079 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.588      ;
+; 15.449 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.218      ;
+; 15.469 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.198      ;
+; 15.469 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.198      ;
+; 15.469 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.198      ;
+; 15.469 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.198      ;
+; 15.469 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3] ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ; clk_sys      ; clk_sys     ; 25.000       ; 0.000      ; 9.198      ;
++--------+------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'spi_clk'                                                                                                                                                                          ;
++--------+-------------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                             ; To Node                                            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 9.008  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 13.190     ;
+; 9.008  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 13.190     ;
+; 9.008  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 13.190     ;
+; 9.008  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 13.190     ;
+; 9.040  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 13.158     ;
+; 9.040  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 13.158     ;
+; 10.104 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 12.094     ;
+; 10.104 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 12.094     ;
+; 10.104 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 12.094     ;
+; 10.104 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 12.094     ;
+; 10.136 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 12.062     ;
+; 10.136 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 12.062     ;
+; 10.471 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.727     ;
+; 10.471 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.727     ;
+; 10.471 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.727     ;
+; 10.471 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.727     ;
+; 10.503 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.695     ;
+; 10.503 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.695     ;
+; 10.681 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.517     ;
+; 10.681 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.517     ;
+; 10.681 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.517     ;
+; 10.681 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.517     ;
+; 10.713 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.485     ;
+; 10.713 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.485     ;
+; 11.029 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.169     ;
+; 11.029 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.169     ;
+; 11.029 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.169     ;
+; 11.029 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.169     ;
+; 11.061 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.137     ;
+; 11.061 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.137     ;
+; 11.187 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 11.011     ;
+; 11.363 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.835     ;
+; 11.411 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.787     ;
+; 11.411 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.787     ;
+; 11.411 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.787     ;
+; 11.411 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.787     ;
+; 11.427 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.771     ;
+; 11.427 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.771     ;
+; 11.443 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.755     ;
+; 11.443 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.755     ;
+; 11.470 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.728     ;
+; 11.470 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.728     ;
+; 11.470 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.728     ;
+; 11.470 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.728     ;
+; 11.502 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.696     ;
+; 11.502 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.696     ;
+; 11.563 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.635     ;
+; 11.569 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.629     ;
+; 11.860 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle            ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.338     ;
+; 11.978 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 10.220     ;
+; 12.283 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.915      ;
+; 12.519 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.679      ;
+; 12.519 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.679      ;
+; 12.519 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.679      ;
+; 12.519 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.679      ;
+; 12.523 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.675      ;
+; 12.523 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.675      ;
+; 12.551 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.647      ;
+; 12.551 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.647      ;
+; 12.650 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.548      ;
+; 12.659 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.539      ;
+; 12.665 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.533      ;
+; 12.826 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.372      ;
+; 12.860 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.338      ;
+; 12.890 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.308      ;
+; 12.890 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.308      ;
+; 13.026 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.172      ;
+; 13.032 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.166      ;
+; 13.036 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.162      ;
+; 13.100 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.098      ;
+; 13.100 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 9.098      ;
+; 13.208 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.990      ;
+; 13.236 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.962      ;
+; 13.242 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.956      ;
+; 13.323 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle            ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.875      ;
+; 13.384 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.814      ;
+; 13.441 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.757      ;
+; 13.448 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.750      ;
+; 13.448 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.750      ;
+; 13.533 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle            ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.665      ;
+; 13.584 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.614      ;
+; 13.590 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.608      ;
+; 13.590 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.608      ;
+; 13.649 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.549      ;
+; 13.651 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.547      ;
+; 13.766 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.432      ;
+; 13.830 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.368      ;
+; 13.830 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.368      ;
+; 13.881 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle            ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.317      ;
+; 13.889 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.309      ;
+; 13.889 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.309      ;
+; 13.966 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.232      ;
+; 13.972 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.226      ;
+; 13.999 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.199      ;
+; 14.025 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.173      ;
+; 14.031 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]           ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.167      ;
+; 14.103 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.095      ;
+; 14.103 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.095      ;
+; 14.103 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.095      ;
+; 14.103 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]         ; spi_clk      ; spi_clk     ; 25.000       ; -2.469     ; 8.095      ;
++--------+-------------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'spi_clk'                                                                                                                                                                              ;
++--------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                             ; To Node                                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -5.637 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 4.630      ;
+; -4.971 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 5.296      ;
+; -3.133 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 7.134      ;
+; -0.809 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 1.881      ;
+; -0.565 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 9.702      ;
+; -0.563 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 2.127      ;
+; -0.561 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 2.129      ;
+; -0.534 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 2.156      ;
+; -0.447 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 9.820      ;
+; -0.334 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 2.356      ;
+; -0.327 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 2.363      ;
+; -0.305 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 2.385      ;
+; -0.257 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 2.433      ;
+; -0.236 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 2.454      ;
+; -0.231 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 2.459      ;
+; -0.208 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 2.482      ;
+; -0.202 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 2.488      ;
+; -0.156 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 10.111     ;
+; -0.150 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 10.117     ;
+; -0.014 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]            ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 10.253     ;
+; -0.014 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]            ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 10.253     ;
+; 0.050  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 10.317     ;
+; 0.226  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 10.493     ;
+; 0.547  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 3.237      ;
+; 0.728  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 3.418      ;
+; 0.856  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 3.546      ;
+; 0.857  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 3.547      ;
+; 0.878  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 3.568      ;
+; 0.960  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 3.650      ;
+; 1.006  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 3.696      ;
+; 1.010  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 3.700      ;
+; 1.121  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 3.811      ;
+; 1.157  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 3.847      ;
+; 1.320  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.010      ;
+; 1.386  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.076      ;
+; 1.757  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.447      ;
+; 1.777  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.467      ;
+; 1.907  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.597      ;
+; 1.927  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.617      ;
+; 2.016  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.706      ;
+; 2.035  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.725      ;
+; 2.133  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.823      ;
+; 2.139  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.829      ;
+; 2.167  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.857      ;
+; 2.198  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.888      ;
+; 2.239  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.929      ;
+; 2.289  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 4.979      ;
+; 2.328  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.018      ;
+; 2.338  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.028      ;
+; 2.344  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.034      ;
+; 2.373  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]            ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 12.640     ;
+; 2.373  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]            ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 12.640     ;
+; 2.400  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.090      ;
+; 2.405  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]            ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 12.672     ;
+; 2.405  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]            ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 12.672     ;
+; 2.405  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]            ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 12.672     ;
+; 2.405  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]            ; clk_sys      ; spi_clk     ; 0.000        ; 10.046     ; 12.672     ;
+; 2.415  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.105      ;
+; 2.435  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.125      ;
+; 2.435  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.125      ;
+; 2.487  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.177      ;
+; 2.634  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.324      ;
+; 2.637  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.327      ;
+; 2.637  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.327      ;
+; 2.697  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.387      ;
+; 2.783  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.473      ;
+; 2.784  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.474      ;
+; 2.790  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.480      ;
+; 2.797  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.487      ;
+; 2.799  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.489      ;
+; 2.847  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.537      ;
+; 2.896  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.586      ;
+; 3.050  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.740      ;
+; 3.064  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.754      ;
+; 3.084  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.774      ;
+; 3.140  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.830      ;
+; 3.143  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.833      ;
+; 3.145  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.835      ;
+; 3.245  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.935      ;
+; 3.268  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.958      ;
+; 3.288  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.978      ;
+; 3.293  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 5.983      ;
+; 3.355  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.045      ;
+; 3.446  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.136      ;
+; 3.650  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.340      ;
+; 3.660  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.350      ;
+; 3.794  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.484      ;
+; 3.801  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.491      ;
+; 4.004  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.694      ;
+; 4.089  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.779      ;
+; 4.095  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.785      ;
+; 4.208  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.898      ;
+; 4.231  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.921      ;
+; 4.231  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.921      ;
+; 4.295  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 6.985      ;
+; 4.428  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 7.118      ;
+; 4.434  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 7.124      ;
+; 4.450  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 7.140      ;
+; 4.471  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 7.161      ;
+; 4.570  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]            ; spi_clk      ; spi_clk     ; 0.000        ; 2.469      ; 7.260      ;
++--------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk_sys'                                                                                                                                                                               ;
++-------+--------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                              ; To Node                                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.414 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2         ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 1.635      ;
+; 1.415 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok_dy2           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok_dy3           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 1.636      ;
+; 1.421 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy3         ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 1.642      ;
+; 1.640 ; inst_sd|inst_sd_ctrl|clk_cnt[0]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[0]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 1.485      ;
+; 1.938 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger          ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.159      ;
+; 2.116 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[8]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[8]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.117 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[15]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[15]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; key:inst_key|key_ctrl:inst_key_ctrl|count[0]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[0]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.126 ; inst_sd|inst_sd_ctrl|clk_cnt[1]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[1]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 1.971      ;
+; 2.126 ; inst_sd|inst_sd_ctrl|clk_cnt[7]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 1.971      ;
+; 2.127 ; key:inst_key|key_ctrl:inst_key_ctrl|count[5]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[5]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.348      ;
+; 2.135 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.356      ;
+; 2.135 ; inst_sd|inst_sd_ctrl|clk_cnt[2]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[2]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 1.980      ;
+; 2.143 ; key:inst_key|key_ctrl:inst_key_ctrl|clk_500khz         ; key:inst_key|key_ctrl:inst_key_ctrl|clk_500khz         ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.364      ;
+; 2.144 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.365      ;
+; 2.144 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.365      ;
+; 2.151 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[10]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[10]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.372      ;
+; 2.152 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[9]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[9]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.373      ;
+; 2.156 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger          ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger          ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.377      ;
+; 2.221 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[1]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[1]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.442      ;
+; 2.222 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.443      ;
+; 2.226 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy3         ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger          ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.447      ;
+; 2.233 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[11]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[11]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.454      ;
+; 2.233 ; key:inst_key|key_ctrl:inst_key_ctrl|count[1]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[1]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.454      ;
+; 2.233 ; inst_sd|inst_sd_ctrl|clk_cnt[3]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[3]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 2.078      ;
+; 2.239 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[13]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[13]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.460      ;
+; 2.239 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[14]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[14]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.460      ;
+; 2.250 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.471      ;
+; 2.271 ; inst_sd|inst_sd_ctrl|clk_cnt[5]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[5]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 2.116      ;
+; 2.271 ; inst_sd|inst_sd_ctrl|clk_cnt[6]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 2.116      ;
+; 2.272 ; key:inst_key|key_ctrl:inst_key_ctrl|count[2]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[2]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.493      ;
+; 2.272 ; key:inst_key|key_ctrl:inst_key_ctrl|count[3]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[3]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.493      ;
+; 2.272 ; key:inst_key|key_ctrl:inst_key_ctrl|count[4]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[4]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.493      ;
+; 2.273 ; inst_sd|inst_sd_ctrl|clk_cnt[4]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[4]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 2.118      ;
+; 2.505 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[2]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[2]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.726      ;
+; 2.581 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok_dy1           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok_dy2           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 2.802      ;
+; 2.948 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[8]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[9]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.169      ;
+; 2.949 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949 ; key:inst_key|key_ctrl:inst_key_ctrl|count[0]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[1]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.170      ;
+; 2.958 ; inst_sd|inst_sd_ctrl|clk_cnt[1]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[2]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 2.803      ;
+; 2.967 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[1]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.188      ;
+; 2.967 ; inst_sd|inst_sd_ctrl|clk_cnt[2]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[3]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 2.812      ;
+; 2.983 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[10]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[11]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.204      ;
+; 2.984 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[9]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[10]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.205      ;
+; 3.059 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[8]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[10]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.280      ;
+; 3.060 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.281      ;
+; 3.060 ; key:inst_key|key_ctrl:inst_key_ctrl|count[0]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[2]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.281      ;
+; 3.069 ; inst_sd|inst_sd_ctrl|clk_cnt[1]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[3]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 2.914      ;
+; 3.078 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[2]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.299      ;
+; 3.078 ; inst_sd|inst_sd_ctrl|clk_cnt[2]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[4]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 2.923      ;
+; 3.082 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok_dy3           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger          ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.303      ;
+; 3.094 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[10]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.315      ;
+; 3.095 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[9]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[11]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.316      ;
+; 3.161 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[1]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[2]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.382      ;
+; 3.162 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.383      ;
+; 3.170 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[8]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[11]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.391      ;
+; 3.173 ; key:inst_key|key_ctrl:inst_key_ctrl|count[1]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[2]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.394      ;
+; 3.173 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[11]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.394      ;
+; 3.173 ; inst_sd|inst_sd_ctrl|clk_cnt[3]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[4]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 3.018      ;
+; 3.179 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[13]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[14]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.400      ;
+; 3.179 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[14]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[15]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.400      ;
+; 3.180 ; inst_sd|inst_sd_ctrl|clk_cnt[1]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[4]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 3.025      ;
+; 3.206 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[9]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.427      ;
+; 3.211 ; inst_sd|inst_sd_ctrl|clk_cnt[5]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 3.056      ;
+; 3.211 ; inst_sd|inst_sd_ctrl|clk_cnt[6]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 3.056      ;
+; 3.212 ; key:inst_key|key_ctrl:inst_key_ctrl|count[4]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[5]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.433      ;
+; 3.212 ; key:inst_key|key_ctrl:inst_key_ctrl|count[3]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[4]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.433      ;
+; 3.272 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.493      ;
+; 3.273 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.494      ;
+; 3.281 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[8]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.502      ;
+; 3.290 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[13]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[15]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.511      ;
+; 3.322 ; inst_sd|inst_sd_ctrl|clk_cnt[5]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 3.167      ;
+; 3.323 ; key:inst_key|key_ctrl:inst_key_ctrl|count[3]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[5]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.544      ;
+; 3.383 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.604      ;
+; 3.384 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.605      ;
+; 3.494 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.715      ;
+; 3.511 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[13]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.732      ;
+; 3.511 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[14]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.732      ;
+; 3.511 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[15]  ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.732      ;
+; 3.529 ; key:inst_key|key_ctrl:inst_key_ctrl|count[0]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[3]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.750      ;
+; 3.529 ; key:inst_key|key_ctrl:inst_key_ctrl|count[0]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[5]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.750      ;
+; 3.529 ; key:inst_key|key_ctrl:inst_key_ctrl|count[0]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[4]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.750      ;
+; 3.533 ; key:inst_key|key_ctrl:inst_key_ctrl|count[2]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[3]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.754      ;
+; 3.533 ; key:inst_key|key_ctrl:inst_key_ctrl|count[2]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[5]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.754      ;
+; 3.533 ; key:inst_key|key_ctrl:inst_key_ctrl|count[2]           ; key:inst_key|key_ctrl:inst_key_ctrl|count[4]           ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.754      ;
+; 3.534 ; inst_sd|inst_sd_ctrl|clk_cnt[4]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[5]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 3.379      ;
+; 3.534 ; inst_sd|inst_sd_ctrl|clk_cnt[4]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 3.379      ;
+; 3.534 ; inst_sd|inst_sd_ctrl|clk_cnt[4]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 3.379      ;
+; 3.547 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.768      ;
+; 3.547 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.768      ;
+; 3.547 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.768      ;
+; 3.547 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.768      ;
+; 3.547 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ; clk_sys      ; clk_sys     ; 0.000        ; 0.000      ; 3.768      ;
+; 3.547 ; inst_sd|inst_sd_ctrl|clk_cnt[2]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[5]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 3.392      ;
+; 3.547 ; inst_sd|inst_sd_ctrl|clk_cnt[2]|regout                 ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ; spi_clk      ; clk_sys     ; 0.000        ; -0.376     ; 3.392      ;
++-------+--------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'spi_clk'                                                                                                           ;
++--------+--------------+----------------+------------------+---------+------------+-------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock   ; Clock Edge ; Target                                                ;
++--------+--------------+----------------+------------------+---------+------------+-------------------------------------------------------+
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]            ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]            ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]            ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]            ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]            ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]            ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]            ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]            ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]            ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]            ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]            ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]            ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]            ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]            ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]            ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]            ;
+; 9.765  ; 10.031       ; 0.266          ; High Pulse Width ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ;
+; 9.765  ; 10.031       ; 0.266          ; Low Pulse Width  ; spi_clk ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle               ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0|combout                     ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0|combout                     ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|current_state.DELAY|clk          ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|current_state.DELAY|clk          ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|current_state.IDLE|clk           ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|current_state.IDLE|clk           ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|current_state.NEGEDGE|clk        ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|current_state.NEGEDGE|clk        ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|current_state.POSEDGE|clk        ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|current_state.POSEDGE|clk        ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|current_state.READY|clk          ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|current_state.READY|clk          ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sbcnt[0]|clk                     ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sbcnt[0]|clk                     ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sbcnt[1]|clk                     ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sbcnt[1]|clk                     ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sbcnt[2]|clk                     ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sbcnt[2]|clk                     ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sbcnt[3]|clk                     ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sbcnt[3]|clk                     ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|spi_sck|clk                      ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|spi_sck|clk                      ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|spi_sdo|clk                      ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|spi_sdo|clk                      ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[0]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[0]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[1]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[1]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[2]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[2]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[3]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[3]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[4]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[4]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[5]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[5]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[6]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[6]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[7]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|sspsreg[7]|clk                   ;
+; 10.031 ; 10.031       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|st_idle|clk                      ;
+; 10.031 ; 10.031       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|st_idle|clk                      ;
+; 10.672 ; 10.672       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0|datad                       ;
+; 10.672 ; 10.672       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0|datad                       ;
+; 10.672 ; 10.672       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~0|combout                   ;
+; 10.672 ; 10.672       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~0|combout                   ;
+; 10.672 ; 10.672       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~2|combout                   ;
+; 10.672 ; 10.672       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~2|combout                   ;
+; 10.672 ; 10.672       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~2|datad                     ;
+; 10.672 ; 10.672       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~2|datad                     ;
+; 12.002 ; 12.002       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0|datac                       ;
+; 12.002 ; 12.002       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0|datac                       ;
+; 12.002 ; 12.002       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~5|combout                   ;
+; 12.002 ; 12.002       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~5|combout                   ;
+; 12.157 ; 12.157       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~3|combout                   ;
+; 12.157 ; 12.157       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~3|combout                   ;
+; 12.157 ; 12.157       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~5|datab                     ;
+; 12.157 ; 12.157       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~5|datab                     ;
+; 12.351 ; 12.351       ; 0.000          ; High Pulse Width ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~1|combout                   ;
+; 12.351 ; 12.351       ; 0.000          ; Low Pulse Width  ; spi_clk ; Rise       ; inst_sd|inst_sd_ctrl|Mux0~1|combout                   ;
++--------+--------------+----------------+------------------+---------+------------+-------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk_sys'                                                                                                            ;
++--------+--------------+----------------+------------------+---------+------------+--------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock   ; Clock Edge ; Target                                                 ;
++--------+--------------+----------------+------------------+---------+------------+--------------------------------------------------------+
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[0]   ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[10]  ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[10]  ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[11]  ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[11]  ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[12]  ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[13]  ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[13]  ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[14]  ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[14]  ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[15]  ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[15]  ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[1]   ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[1]   ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[2]   ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[2]   ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[3]   ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[4]   ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[5]   ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[6]   ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[7]   ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[8]   ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[8]   ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[9]   ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|count[9]   ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|clk_500khz         ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|clk_500khz         ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|count[0]           ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|count[0]           ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|count[1]           ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|count[1]           ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|count[2]           ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|count[2]           ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|count[3]           ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|count[3]           ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|count[4]           ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|count[4]           ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|count[5]           ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; key:inst_key|key_ctrl:inst_key_ctrl|count[5]           ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[0]             ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[0]             ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[1]             ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[1]             ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[2]             ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[2]             ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[3]             ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[3]             ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[4]             ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[4]             ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[5]             ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[5]             ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[6]             ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|clk_cnt[7]             ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok_dy1           ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok_dy1           ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok_dy2           ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok_dy2           ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok_dy3           ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok_dy3           ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger          ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_trigger          ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[0]          ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[0]          ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[1]          ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[1]          ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[2]          ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[2]          ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1         ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1         ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2         ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2         ;
+; 12.234 ; 12.500       ; 0.266          ; High Pulse Width ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy3         ;
+; 12.234 ; 12.500       ; 0.266          ; Low Pulse Width  ; clk_sys ; Rise       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy3         ;
+; 12.500 ; 12.500       ; 0.000          ; High Pulse Width ; clk_sys ; Rise       ; CLK_50M_i|combout                                      ;
+; 12.500 ; 12.500       ; 0.000          ; Low Pulse Width  ; clk_sys ; Rise       ; CLK_50M_i|combout                                      ;
+; 12.500 ; 12.500       ; 0.000          ; High Pulse Width ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|clk_500khz|clk              ;
+; 12.500 ; 12.500       ; 0.000          ; Low Pulse Width  ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|clk_500khz|clk              ;
+; 12.500 ; 12.500       ; 0.000          ; High Pulse Width ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|count[0]|clk                ;
+; 12.500 ; 12.500       ; 0.000          ; Low Pulse Width  ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|count[0]|clk                ;
+; 12.500 ; 12.500       ; 0.000          ; High Pulse Width ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|count[10]|clk               ;
+; 12.500 ; 12.500       ; 0.000          ; Low Pulse Width  ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|count[10]|clk               ;
+; 12.500 ; 12.500       ; 0.000          ; High Pulse Width ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|count[11]|clk               ;
+; 12.500 ; 12.500       ; 0.000          ; Low Pulse Width  ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|count[11]|clk               ;
+; 12.500 ; 12.500       ; 0.000          ; High Pulse Width ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|count[12]|clk               ;
+; 12.500 ; 12.500       ; 0.000          ; Low Pulse Width  ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|count[12]|clk               ;
+; 12.500 ; 12.500       ; 0.000          ; High Pulse Width ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|count[13]|clk               ;
+; 12.500 ; 12.500       ; 0.000          ; Low Pulse Width  ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|count[13]|clk               ;
+; 12.500 ; 12.500       ; 0.000          ; High Pulse Width ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|count[14]|clk               ;
+; 12.500 ; 12.500       ; 0.000          ; Low Pulse Width  ; clk_sys ; Rise       ; inst_ec11b|inst_ec11b_ctrl|count[14]|clk               ;
++--------+--------------+----------------+------------------+---------+------------+--------------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; CPU_nRD_i ; clk_sys    ; 5.967  ; 5.967  ; Rise       ; clk_sys         ;
+; CPU_nWR_i ; clk_sys    ; 5.112  ; 5.112  ; Rise       ; clk_sys         ;
+; RESET_N_i ; clk_sys    ; 7.614  ; 7.614  ; Rise       ; clk_sys         ;
+; SD_SDI_i  ; clk_sys    ; -4.196 ; -4.196 ; Rise       ; spi_clk         ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; CPU_nRD_i ; clk_sys    ; -5.413 ; -5.413 ; Rise       ; clk_sys         ;
+; CPU_nWR_i ; clk_sys    ; -4.558 ; -4.558 ; Rise       ; clk_sys         ;
+; RESET_N_i ; clk_sys    ; -4.549 ; -4.549 ; Rise       ; clk_sys         ;
+; SD_SDI_i  ; clk_sys    ; 7.219  ; 7.219  ; Rise       ; spi_clk         ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SD_SCK_o  ; clk_sys    ; 19.030 ; 19.030 ; Rise       ; spi_clk         ;
+; SD_SDO_o  ; clk_sys    ; 19.226 ; 19.226 ; Rise       ; spi_clk         ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SD_SCK_o  ; clk_sys    ; 16.561 ; 16.561 ; Rise       ; spi_clk         ;
+; SD_SDO_o  ; clk_sys    ; 16.757 ; 16.757 ; Rise       ; spi_clk         ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------+
+; Propagation Delay                                              ;
++-----------------+------------------+--------+----+----+--------+
+; Input Port      ; Output Port      ; RR     ; RF ; FR ; FF     ;
++-----------------+------------------+--------+----+----+--------+
+; CPU_DA_io8[0]   ; SRAM_DAT_io8[0]  ; 8.988  ;    ;    ; 8.988  ;
+; CPU_DA_io8[1]   ; SRAM_DAT_io8[1]  ; 9.219  ;    ;    ; 9.219  ;
+; CPU_DA_io8[2]   ; SRAM_DAT_io8[2]  ; 9.013  ;    ;    ; 9.013  ;
+; CPU_DA_io8[3]   ; SRAM_DAT_io8[3]  ; 9.652  ;    ;    ; 9.652  ;
+; CPU_DA_io8[4]   ; SRAM_DAT_io8[4]  ; 9.008  ;    ;    ; 9.008  ;
+; CPU_DA_io8[5]   ; SRAM_DAT_io8[5]  ; 9.007  ;    ;    ; 9.007  ;
+; CPU_DA_io8[6]   ; SRAM_DAT_io8[6]  ; 10.357 ;    ;    ; 10.357 ;
+; CPU_DA_io8[7]   ; SRAM_DAT_io8[7]  ; 9.573  ;    ;    ; 9.573  ;
+; CPU_nPSEN_i     ; CPU_DA_io8[0]    ; 11.297 ;    ;    ; 11.297 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[1]    ; 10.600 ;    ;    ; 10.600 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[2]    ; 10.600 ;    ;    ; 10.600 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[3]    ; 10.600 ;    ;    ; 10.600 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[4]    ; 10.600 ;    ;    ; 10.600 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[5]    ; 10.600 ;    ;    ; 10.600 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[6]    ; 11.251 ;    ;    ; 11.251 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[7]    ; 11.251 ;    ;    ; 11.251 ;
+; CPU_nPSEN_i     ; SRAM_ADD_o16[16] ; 12.580 ;    ;    ; 12.580 ;
+; CPU_nPSEN_i     ; SRAM_nOE_o       ; 11.463 ;    ;    ; 11.463 ;
+; CPU_nPSEN_i     ; V3_AD_DIR_o      ; 12.483 ;    ;    ; 12.483 ;
+; CPU_nRD_i       ; CPU_DA_io8[0]    ; 11.844 ;    ;    ; 11.844 ;
+; CPU_nRD_i       ; CPU_DA_io8[1]    ; 11.147 ;    ;    ; 11.147 ;
+; CPU_nRD_i       ; CPU_DA_io8[2]    ; 11.147 ;    ;    ; 11.147 ;
+; CPU_nRD_i       ; CPU_DA_io8[3]    ; 11.147 ;    ;    ; 11.147 ;
+; CPU_nRD_i       ; CPU_DA_io8[4]    ; 11.147 ;    ;    ; 11.147 ;
+; CPU_nRD_i       ; CPU_DA_io8[5]    ; 11.147 ;    ;    ; 11.147 ;
+; CPU_nRD_i       ; CPU_DA_io8[6]    ; 11.798 ;    ;    ; 11.798 ;
+; CPU_nRD_i       ; CPU_DA_io8[7]    ; 11.798 ;    ;    ; 11.798 ;
+; CPU_nRD_i       ; LED_o8[7]        ; 15.222 ;    ;    ; 15.222 ;
+; CPU_nRD_i       ; SRAM_nOE_o       ; 11.320 ;    ;    ; 11.320 ;
+; CPU_nRD_i       ; V3_AD_DIR_o      ; 13.030 ;    ;    ; 13.030 ;
+; CPU_nRD_i       ; V3_LCD_E_o       ; 16.910 ;    ;    ; 16.910 ;
+; CPU_nWR_i       ; LED_o8[7]        ; 14.367 ;    ;    ; 14.367 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[0]  ; 10.448 ;    ;    ; 10.448 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[1]  ; 10.448 ;    ;    ; 10.448 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[2]  ; 10.448 ;    ;    ; 10.448 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[3]  ; 10.448 ;    ;    ; 10.448 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[4]  ; 10.448 ;    ;    ; 10.448 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[5]  ; 10.448 ;    ;    ; 10.448 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[6]  ; 11.086 ;    ;    ; 11.086 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[7]  ; 11.086 ;    ;    ; 11.086 ;
+; CPU_nWR_i       ; SRAM_nWE_o       ; 12.701 ;    ;    ; 12.701 ;
+; CPU_nWR_i       ; V3_LCD_E_o       ; 16.055 ;    ;    ; 16.055 ;
+; RESET_N_i       ; CPU_DA_io8[0]    ; 25.930 ;    ;    ; 25.930 ;
+; RESET_N_i       ; CPU_DA_io8[1]    ; 23.384 ;    ;    ; 23.384 ;
+; RESET_N_i       ; CPU_DA_io8[2]    ; 25.133 ;    ;    ; 25.133 ;
+; RESET_N_i       ; CPU_DA_io8[3]    ; 23.098 ;    ;    ; 23.098 ;
+; RESET_N_i       ; CPU_DA_io8[4]    ; 23.444 ;    ;    ; 23.444 ;
+; RESET_N_i       ; CPU_DA_io8[5]    ; 23.290 ;    ;    ; 23.290 ;
+; RESET_N_i       ; CPU_DA_io8[6]    ; 24.825 ;    ;    ; 24.825 ;
+; RESET_N_i       ; CPU_DA_io8[7]    ; 22.415 ;    ;    ; 22.415 ;
+; RESET_N_i       ; LED_o8[7]        ; 16.939 ;    ;    ; 16.939 ;
+; RESET_N_i       ; SRAM_ADD_o16[0]  ; 13.260 ;    ;    ; 13.260 ;
+; RESET_N_i       ; SRAM_ADD_o16[1]  ; 13.260 ;    ;    ; 13.260 ;
+; RESET_N_i       ; SRAM_ADD_o16[2]  ; 13.260 ;    ;    ; 13.260 ;
+; RESET_N_i       ; SRAM_ADD_o16[3]  ; 13.260 ;    ;    ; 13.260 ;
+; RESET_N_i       ; SRAM_ADD_o16[4]  ; 14.365 ;    ;    ; 14.365 ;
+; RESET_N_i       ; SRAM_ADD_o16[5]  ; 14.365 ;    ;    ; 14.365 ;
+; RESET_N_i       ; SRAM_ADD_o16[6]  ; 14.365 ;    ;    ; 14.365 ;
+; RESET_N_i       ; SRAM_ADD_o16[7]  ; 14.924 ;    ;    ; 14.924 ;
+; RESET_N_i       ; SRAM_ADD_o16[8]  ; 15.840 ;    ;    ; 15.840 ;
+; RESET_N_i       ; SRAM_ADD_o16[9]  ; 15.840 ;    ;    ; 15.840 ;
+; RESET_N_i       ; SRAM_ADD_o16[10] ; 14.894 ;    ;    ; 14.894 ;
+; RESET_N_i       ; SRAM_ADD_o16[11] ; 15.840 ;    ;    ; 15.840 ;
+; RESET_N_i       ; SRAM_ADD_o16[12] ; 14.924 ;    ;    ; 14.924 ;
+; RESET_N_i       ; SRAM_ADD_o16[13] ; 15.809 ;    ;    ; 15.809 ;
+; RESET_N_i       ; SRAM_ADD_o16[14] ; 15.482 ;    ;    ; 15.482 ;
+; RESET_N_i       ; SRAM_ADD_o16[15] ; 15.081 ;    ;    ; 15.081 ;
+; RESET_N_i       ; SRAM_ADD_o16[16] ; 14.841 ;    ;    ; 14.841 ;
+; RESET_N_i       ; SRAM_DAT_io8[0]  ; 12.628 ;    ;    ; 12.628 ;
+; RESET_N_i       ; SRAM_DAT_io8[1]  ; 12.628 ;    ;    ; 12.628 ;
+; RESET_N_i       ; SRAM_DAT_io8[2]  ; 12.628 ;    ;    ; 12.628 ;
+; RESET_N_i       ; SRAM_DAT_io8[3]  ; 12.628 ;    ;    ; 12.628 ;
+; RESET_N_i       ; SRAM_DAT_io8[4]  ; 12.628 ;    ;    ; 12.628 ;
+; RESET_N_i       ; SRAM_DAT_io8[5]  ; 12.628 ;    ;    ; 12.628 ;
+; RESET_N_i       ; SRAM_DAT_io8[6]  ; 13.266 ;    ;    ; 13.266 ;
+; RESET_N_i       ; SRAM_DAT_io8[7]  ; 13.266 ;    ;    ; 13.266 ;
+; RESET_N_i       ; SRAM_nOE_o       ; 14.660 ;    ;    ; 14.660 ;
+; RESET_N_i       ; SRAM_nWE_o       ; 14.878 ;    ;    ; 14.878 ;
+; RESET_N_i       ; V3_LCD_E_o       ; 16.046 ;    ;    ; 16.046 ;
+; RESET_N_i       ; V3_LCD_RS_o      ; 13.025 ;    ;    ; 13.025 ;
+; RESET_N_i       ; V3_LCD_RW_o      ; 13.111 ;    ;    ; 13.111 ;
+; SRAM_DAT_io8[0] ; CPU_DA_io8[0]    ; 15.205 ;    ;    ; 15.205 ;
+; SRAM_DAT_io8[1] ; CPU_DA_io8[1]    ; 14.174 ;    ;    ; 14.174 ;
+; SRAM_DAT_io8[2] ; CPU_DA_io8[2]    ; 13.855 ;    ;    ; 13.855 ;
+; SRAM_DAT_io8[3] ; CPU_DA_io8[3]    ; 13.996 ;    ;    ; 13.996 ;
+; SRAM_DAT_io8[4] ; CPU_DA_io8[4]    ; 12.931 ;    ;    ; 12.931 ;
+; SRAM_DAT_io8[5] ; CPU_DA_io8[5]    ; 13.417 ;    ;    ; 13.417 ;
+; SRAM_DAT_io8[6] ; CPU_DA_io8[6]    ; 14.766 ;    ;    ; 14.766 ;
+; SRAM_DAT_io8[7] ; CPU_DA_io8[7]    ; 12.897 ;    ;    ; 12.897 ;
++-----------------+------------------+--------+----+----+--------+
+
+
++----------------------------------------------------------------+
+; Minimum Propagation Delay                                      ;
++-----------------+------------------+--------+----+----+--------+
+; Input Port      ; Output Port      ; RR     ; RF ; FR ; FF     ;
++-----------------+------------------+--------+----+----+--------+
+; CPU_DA_io8[0]   ; SRAM_DAT_io8[0]  ; 8.988  ;    ;    ; 8.988  ;
+; CPU_DA_io8[1]   ; SRAM_DAT_io8[1]  ; 9.219  ;    ;    ; 9.219  ;
+; CPU_DA_io8[2]   ; SRAM_DAT_io8[2]  ; 9.013  ;    ;    ; 9.013  ;
+; CPU_DA_io8[3]   ; SRAM_DAT_io8[3]  ; 9.652  ;    ;    ; 9.652  ;
+; CPU_DA_io8[4]   ; SRAM_DAT_io8[4]  ; 9.008  ;    ;    ; 9.008  ;
+; CPU_DA_io8[5]   ; SRAM_DAT_io8[5]  ; 9.007  ;    ;    ; 9.007  ;
+; CPU_DA_io8[6]   ; SRAM_DAT_io8[6]  ; 10.357 ;    ;    ; 10.357 ;
+; CPU_DA_io8[7]   ; SRAM_DAT_io8[7]  ; 9.573  ;    ;    ; 9.573  ;
+; CPU_nPSEN_i     ; CPU_DA_io8[0]    ; 11.297 ;    ;    ; 11.297 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[1]    ; 10.600 ;    ;    ; 10.600 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[2]    ; 10.600 ;    ;    ; 10.600 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[3]    ; 10.600 ;    ;    ; 10.600 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[4]    ; 10.600 ;    ;    ; 10.600 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[5]    ; 10.600 ;    ;    ; 10.600 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[6]    ; 11.251 ;    ;    ; 11.251 ;
+; CPU_nPSEN_i     ; CPU_DA_io8[7]    ; 11.251 ;    ;    ; 11.251 ;
+; CPU_nPSEN_i     ; SRAM_ADD_o16[16] ; 12.580 ;    ;    ; 12.580 ;
+; CPU_nPSEN_i     ; SRAM_nOE_o       ; 11.463 ;    ;    ; 11.463 ;
+; CPU_nPSEN_i     ; V3_AD_DIR_o      ; 12.483 ;    ;    ; 12.483 ;
+; CPU_nRD_i       ; CPU_DA_io8[0]    ; 11.844 ;    ;    ; 11.844 ;
+; CPU_nRD_i       ; CPU_DA_io8[1]    ; 11.147 ;    ;    ; 11.147 ;
+; CPU_nRD_i       ; CPU_DA_io8[2]    ; 11.147 ;    ;    ; 11.147 ;
+; CPU_nRD_i       ; CPU_DA_io8[3]    ; 11.147 ;    ;    ; 11.147 ;
+; CPU_nRD_i       ; CPU_DA_io8[4]    ; 11.147 ;    ;    ; 11.147 ;
+; CPU_nRD_i       ; CPU_DA_io8[5]    ; 11.147 ;    ;    ; 11.147 ;
+; CPU_nRD_i       ; CPU_DA_io8[6]    ; 11.798 ;    ;    ; 11.798 ;
+; CPU_nRD_i       ; CPU_DA_io8[7]    ; 11.798 ;    ;    ; 11.798 ;
+; CPU_nRD_i       ; LED_o8[7]        ; 15.222 ;    ;    ; 15.222 ;
+; CPU_nRD_i       ; SRAM_nOE_o       ; 11.320 ;    ;    ; 11.320 ;
+; CPU_nRD_i       ; V3_AD_DIR_o      ; 13.030 ;    ;    ; 13.030 ;
+; CPU_nRD_i       ; V3_LCD_E_o       ; 16.910 ;    ;    ; 16.910 ;
+; CPU_nWR_i       ; LED_o8[7]        ; 14.367 ;    ;    ; 14.367 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[0]  ; 10.448 ;    ;    ; 10.448 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[1]  ; 10.448 ;    ;    ; 10.448 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[2]  ; 10.448 ;    ;    ; 10.448 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[3]  ; 10.448 ;    ;    ; 10.448 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[4]  ; 10.448 ;    ;    ; 10.448 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[5]  ; 10.448 ;    ;    ; 10.448 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[6]  ; 11.086 ;    ;    ; 11.086 ;
+; CPU_nWR_i       ; SRAM_DAT_io8[7]  ; 11.086 ;    ;    ; 11.086 ;
+; CPU_nWR_i       ; SRAM_nWE_o       ; 12.701 ;    ;    ; 12.701 ;
+; CPU_nWR_i       ; V3_LCD_E_o       ; 16.055 ;    ;    ; 16.055 ;
+; RESET_N_i       ; CPU_DA_io8[0]    ; 16.506 ;    ;    ; 16.506 ;
+; RESET_N_i       ; CPU_DA_io8[1]    ; 14.726 ;    ;    ; 14.726 ;
+; RESET_N_i       ; CPU_DA_io8[2]    ; 15.567 ;    ;    ; 15.567 ;
+; RESET_N_i       ; CPU_DA_io8[3]    ; 14.758 ;    ;    ; 14.758 ;
+; RESET_N_i       ; CPU_DA_io8[4]    ; 16.130 ;    ;    ; 16.130 ;
+; RESET_N_i       ; CPU_DA_io8[5]    ; 16.140 ;    ;    ; 16.140 ;
+; RESET_N_i       ; CPU_DA_io8[6]    ; 16.177 ;    ;    ; 16.177 ;
+; RESET_N_i       ; CPU_DA_io8[7]    ; 15.448 ;    ;    ; 15.448 ;
+; RESET_N_i       ; LED_o8[7]        ; 14.358 ;    ;    ; 14.358 ;
+; RESET_N_i       ; SRAM_ADD_o16[0]  ; 12.415 ;    ;    ; 12.415 ;
+; RESET_N_i       ; SRAM_ADD_o16[1]  ; 12.014 ;    ;    ; 12.014 ;
+; RESET_N_i       ; SRAM_ADD_o16[2]  ; 12.714 ;    ;    ; 12.714 ;
+; RESET_N_i       ; SRAM_ADD_o16[3]  ; 12.765 ;    ;    ; 12.765 ;
+; RESET_N_i       ; SRAM_ADD_o16[4]  ; 12.728 ;    ;    ; 12.728 ;
+; RESET_N_i       ; SRAM_ADD_o16[5]  ; 12.340 ;    ;    ; 12.340 ;
+; RESET_N_i       ; SRAM_ADD_o16[6]  ; 13.929 ;    ;    ; 13.929 ;
+; RESET_N_i       ; SRAM_ADD_o16[7]  ; 13.695 ;    ;    ; 13.695 ;
+; RESET_N_i       ; SRAM_ADD_o16[8]  ; 15.689 ;    ;    ; 15.689 ;
+; RESET_N_i       ; SRAM_ADD_o16[9]  ; 15.052 ;    ;    ; 15.052 ;
+; RESET_N_i       ; SRAM_ADD_o16[10] ; 14.297 ;    ;    ; 14.297 ;
+; RESET_N_i       ; SRAM_ADD_o16[11] ; 14.984 ;    ;    ; 14.984 ;
+; RESET_N_i       ; SRAM_ADD_o16[12] ; 10.777 ;    ;    ; 10.777 ;
+; RESET_N_i       ; SRAM_ADD_o16[13] ; 11.482 ;    ;    ; 11.482 ;
+; RESET_N_i       ; SRAM_ADD_o16[14] ; 9.683  ;    ;    ; 9.683  ;
+; RESET_N_i       ; SRAM_ADD_o16[15] ; 10.742 ;    ;    ; 10.742 ;
+; RESET_N_i       ; SRAM_ADD_o16[16] ; 14.841 ;    ;    ; 14.841 ;
+; RESET_N_i       ; SRAM_DAT_io8[0]  ; 12.628 ;    ;    ; 12.628 ;
+; RESET_N_i       ; SRAM_DAT_io8[1]  ; 12.628 ;    ;    ; 12.628 ;
+; RESET_N_i       ; SRAM_DAT_io8[2]  ; 12.628 ;    ;    ; 12.628 ;
+; RESET_N_i       ; SRAM_DAT_io8[3]  ; 12.628 ;    ;    ; 12.628 ;
+; RESET_N_i       ; SRAM_DAT_io8[4]  ; 12.628 ;    ;    ; 12.628 ;
+; RESET_N_i       ; SRAM_DAT_io8[5]  ; 12.628 ;    ;    ; 12.628 ;
+; RESET_N_i       ; SRAM_DAT_io8[6]  ; 13.266 ;    ;    ; 13.266 ;
+; RESET_N_i       ; SRAM_DAT_io8[7]  ; 13.266 ;    ;    ; 13.266 ;
+; RESET_N_i       ; SRAM_nOE_o       ; 14.660 ;    ;    ; 14.660 ;
+; RESET_N_i       ; SRAM_nWE_o       ; 14.878 ;    ;    ; 14.878 ;
+; RESET_N_i       ; V3_LCD_E_o       ; 16.046 ;    ;    ; 16.046 ;
+; RESET_N_i       ; V3_LCD_RS_o      ; 13.025 ;    ;    ; 13.025 ;
+; RESET_N_i       ; V3_LCD_RW_o      ; 13.111 ;    ;    ; 13.111 ;
+; SRAM_DAT_io8[0] ; CPU_DA_io8[0]    ; 15.205 ;    ;    ; 15.205 ;
+; SRAM_DAT_io8[1] ; CPU_DA_io8[1]    ; 14.174 ;    ;    ; 14.174 ;
+; SRAM_DAT_io8[2] ; CPU_DA_io8[2]    ; 13.855 ;    ;    ; 13.855 ;
+; SRAM_DAT_io8[3] ; CPU_DA_io8[3]    ; 13.996 ;    ;    ; 13.996 ;
+; SRAM_DAT_io8[4] ; CPU_DA_io8[4]    ; 12.931 ;    ;    ; 12.931 ;
+; SRAM_DAT_io8[5] ; CPU_DA_io8[5]    ; 13.417 ;    ;    ; 13.417 ;
+; SRAM_DAT_io8[6] ; CPU_DA_io8[6]    ; 14.766 ;    ;    ; 14.766 ;
+; SRAM_DAT_io8[7] ; CPU_DA_io8[7]    ; 12.897 ;    ;    ; 12.897 ;
++-----------------+------------------+--------+----+----+--------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk_sys    ; clk_sys  ; 532      ; 0        ; 0        ; 0        ;
+; spi_clk    ; clk_sys  ; 60       ; 60       ; 0        ; 0        ;
+; clk_sys    ; spi_clk  ; 17       ; 0        ; 0        ; 0        ;
+; spi_clk    ; spi_clk  ; 264      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk_sys    ; clk_sys  ; 532      ; 0        ; 0        ; 0        ;
+; spi_clk    ; clk_sys  ; 60       ; 60       ; 0        ; 0        ;
+; clk_sys    ; spi_clk  ; 17       ; 0        ; 0        ; 0        ;
+; spi_clk    ; spi_clk  ; 264      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 7     ; 7    ;
+; Unconstrained Input Ports       ; 35    ; 35   ;
+; Unconstrained Input Port Paths  ; 370   ; 370  ;
+; Unconstrained Output Ports      ; 48    ; 48   ;
+; Unconstrained Output Port Paths ; 591   ; 591  ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 10.0 Build 262 08/18/2010 Service Pack 1 SJ Full Version
+    Info: Processing started: Sun Dec 13 00:34:57 2015
+Info: Command: quartus_sta max51 -c max51
+Info: qsta_default_script.tcl version: #1
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "inst_ec11b|inst_ec11b_ctrl|clr_dy1|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_intmsk_r|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|nstate.POSEDGE_439|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|nstate.NEGEDGE_427|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|nstate.IDLE_451|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[7]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|ssppres_r8[0]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|ssppres_r8[1]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[6]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[0]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[0]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[0]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[1]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[1]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[1]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[2]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[2]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[2]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[3]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[3]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[3]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[4]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[4]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[4]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[5]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[5]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[5]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[6]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[6]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[6]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[7]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[7]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[7]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[5]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[0]|combout" is a latch
+    Warning: Node "inst_common_reg|lcd_rst_o|combout" is a latch
+    Warning: Node "inst_common_reg|sound_o|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[0]|combout" is a latch
+    Warning: Node "inst_common_reg|lcd_bk_o|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[0]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[0]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[0]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[1]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[1]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[1]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[1]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[1]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[2]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[2]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[2]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[2]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|ssppres_r8[2]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[2]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[3]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[3]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[3]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[3]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssppres_o8[3]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[3]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[4]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[4]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[4]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[4]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssppres_o8[4]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[4]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[5]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[5]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[5]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssppres_o8[5]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[5]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[6]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[6]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[6]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssppres_o8[6]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[6]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[7]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[7]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[7]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssppres_o8[7]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[7]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|shift_ok_dy1|combout" is a latch
+Info: Reading SDC File: 'max51.sdc'
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[1]~38 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[1]~38COUT1_69 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[2]~40 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[2]~40COUT1_71 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[3]~42 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[3]~42COUT1_73 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[4]~44 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[5]~46 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[5]~46COUT1_75 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[6]~48 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[6]~48COUT1_77 could not be matched with a net
+Warning: Node: ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: CPU_ALE_i was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: key:inst_key|key_ctrl:inst_key_ctrl|clk_500khz was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: CPU_nWR_i was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: CPU_nRD_i was determined to be a clock but was found without an associated clock assignment.
+Info: write_sdc -pt
+Info: Worst-case setup slack is 5.787
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     5.787         0.000 clk_sys 
+    Info:     9.008         0.000 spi_clk 
+Critical Warning: Timing requirements not met
+Info: Worst-case hold slack is -5.637
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -5.637       -17.792 spi_clk 
+    Info:     1.414         0.000 clk_sys 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is 9.765
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     9.765         0.000 spi_clk 
+    Info:    12.234         0.000 clk_sys 
+Info: The selected device family is not supported by the report_metastability command.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 101 warnings
+    Info: Peak virtual memory: 220 megabytes
+    Info: Processing ended: Sun Dec 13 00:34:59 2015
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

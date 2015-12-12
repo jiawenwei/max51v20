@@ -1,0 +1,170 @@
+# Copyright (C) 1991-2008 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		max51_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+set_global_assignment -name FAMILY "MAX II"
+set_global_assignment -name DEVICE EPM1270T144C5
+set_global_assignment -name TOP_LEVEL_ENTITY max51_top
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 8.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:13:32  DECEMBER 07, 2014"
+set_global_assignment -name LAST_QUARTUS_VERSION "10.0 SP1"
+set_global_assignment -name EDA_DESIGN_ENTRY_SYNTHESIS_TOOL Synplify
+set_global_assignment -name EDA_LMF_FILE synplcty.lmf -section_id eda_design_synthesis
+set_global_assignment -name EDA_INPUT_DATA_FORMAT VQM -section_id eda_design_synthesis
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim (Verilog)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VERILOG -section_id eda_simulation
+set_global_assignment -name EDA_TIMING_ANALYSIS_TOOL "Custom Verilog HDL"
+set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR timing/custom -section_id eda_timing_analysis
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VERILOG -section_id eda_timing_analysis
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_palace
+set_global_assignment -name MAXII_OPTIMIZATION_TECHNIQUE BALANCED
+set_global_assignment -name DEVICE_FILTER_PACKAGE TQFP
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 5
+set_global_assignment -name POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR 3.3V
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+
+set_global_assignment -name AUTO_RESTART_CONFIGURATION OFF
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name FMAX_REQUIREMENT "40 MHz" -section_id clk_50MHz
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_location_assignment PIN_18 -to CLK_50M_i
+set_location_assignment PIN_32 -to CPU_ADDR_i8[15]
+set_location_assignment PIN_41 -to CPU_ALE_i
+set_location_assignment PIN_31 -to CPU_ADDR_i8[14]
+set_location_assignment PIN_30 -to CPU_ADDR_i8[13]
+set_location_assignment PIN_29 -to CPU_ADDR_i8[12]
+set_location_assignment PIN_28 -to CPU_ADDR_i8[11]
+set_location_assignment PIN_27 -to CPU_ADDR_i8[10]
+set_location_assignment PIN_24 -to CPU_ADDR_i8[9]
+set_location_assignment PIN_23 -to CPU_ADDR_i8[8]
+set_location_assignment PIN_22 -to CPU_DA_io8[7]
+set_location_assignment PIN_21 -to CPU_DA_io8[6]
+set_location_assignment PIN_16 -to CPU_DA_io8[5]
+set_location_assignment PIN_15 -to CPU_DA_io8[4]
+set_location_assignment PIN_14 -to CPU_DA_io8[3]
+set_location_assignment PIN_13 -to CPU_DA_io8[2]
+set_location_assignment PIN_12 -to CPU_DA_io8[1]
+set_location_assignment PIN_11 -to CPU_DA_io8[0]
+set_location_assignment PIN_3 -to CPU_INT0_o
+set_location_assignment PIN_37 -to CPU_LIB_i
+set_location_assignment PIN_38 -to CPU_nPSEN_i
+set_location_assignment PIN_39 -to CPU_nRD_i
+set_location_assignment PIN_40 -to CPU_nWR_i
+set_location_assignment PIN_75 -to EC11E_A_i
+set_location_assignment PIN_74 -to EC11E_B_i
+set_location_assignment PIN_45 -to LED_CTL_o
+set_location_assignment PIN_137 -to LED_o8[0]
+set_location_assignment PIN_138 -to LED_o8[1]
+set_location_assignment PIN_139 -to LED_o8[2]
+set_location_assignment PIN_140 -to LED_o8[3]
+set_location_assignment PIN_141 -to LED_o8[4]
+set_location_assignment PIN_142 -to LED_o8[5]
+set_location_assignment PIN_143 -to LED_o8[6]
+set_location_assignment PIN_144 -to LED_o8[7]
+set_location_assignment PIN_48 -to SD_CD_i
+set_location_assignment PIN_50 -to SD_SCK_o
+set_location_assignment PIN_49 -to SD_SDI_i
+set_location_assignment PIN_52 -to SD_SDO_o
+set_location_assignment PIN_51 -to SD_nCS_i
+set_location_assignment PIN_98 -to SOUND_o
+set_location_assignment PIN_131 -to SRAM_ADD_o16[0]
+set_location_assignment PIN_132 -to SRAM_ADD_o16[1]
+set_location_assignment PIN_133 -to SRAM_ADD_o16[2]
+set_location_assignment PIN_134 -to SRAM_ADD_o16[3]
+set_location_assignment PIN_118 -to SRAM_ADD_o16[4]
+set_location_assignment PIN_117 -to SRAM_ADD_o16[5]
+set_location_assignment PIN_114 -to SRAM_ADD_o16[6]
+set_location_assignment PIN_113 -to SRAM_ADD_o16[7]
+set_location_assignment PIN_105 -to SRAM_ADD_o16[8]
+set_location_assignment PIN_104 -to SRAM_ADD_o16[9]
+set_location_assignment PIN_121 -to SRAM_ADD_o16[10]
+set_location_assignment PIN_103 -to SRAM_ADD_o16[11]
+set_location_assignment PIN_112 -to SRAM_ADD_o16[12]
+set_location_assignment PIN_106 -to SRAM_ADD_o16[13]
+set_location_assignment PIN_111 -to SRAM_ADD_o16[14]
+set_location_assignment PIN_108 -to SRAM_ADD_o16[15]
+set_location_assignment PIN_110 -to SRAM_ADD_o16[16]
+set_location_assignment PIN_130 -to SRAM_DAT_io8[0]
+set_location_assignment PIN_129 -to SRAM_DAT_io8[1]
+set_location_assignment PIN_127 -to SRAM_DAT_io8[2]
+set_location_assignment PIN_125 -to SRAM_DAT_io8[3]
+set_location_assignment PIN_124 -to SRAM_DAT_io8[4]
+set_location_assignment PIN_123 -to SRAM_DAT_io8[5]
+set_location_assignment PIN_119 -to SRAM_DAT_io8[6]
+set_location_assignment PIN_120 -to SRAM_DAT_io8[7]
+set_location_assignment PIN_122 -to SRAM_nOE_o
+set_location_assignment PIN_107 -to SRAM_nWE_o
+set_location_assignment PIN_1 -to V3_AD_DIR_o
+set_location_assignment PIN_2 -to V3_AD_nOE_o
+set_location_assignment PIN_6 -to V3_LCD_E_o
+set_location_assignment PIN_7 -to V3_LCD_RS_o
+set_location_assignment PIN_5 -to V3_LCD_RW_o
+set_location_assignment PIN_8 -to V3_LCD_nRST_o
+set_location_assignment PIN_91 -to RESET_N_i
+set_location_assignment PIN_79 -to KEY_ROW_o2[0]
+set_location_assignment PIN_80 -to KEY_ROW_o2[1]
+set_global_assignment -name FIT_ONLY_ONE_ATTEMPT ON
+set_global_assignment -name ENABLE_LOGIC_ANALYZER_INTERFACE OFF
+set_global_assignment -name FITTER_EFFORT "AUTO FIT"
+set_global_assignment -name SEED 2
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC ON
+set_global_assignment -name USE_TIMEQUEST_TIMING_ANALYZER ON
+set_global_assignment -name ENABLE_DRC_SETTINGS ON
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS OFF
+set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL OFF
+set_global_assignment -name MISC_FILE "D:/Git/max51v20/cpld/max51.dpf"
+set_location_assignment PIN_73 -to EC11E_D_i
+set_location_assignment PIN_86 -to KEY_COL_i4[0]
+set_location_assignment PIN_87 -to KEY_COL_i4[1]
+set_location_assignment PIN_76 -to KEY_COL_i4[2]
+set_location_assignment PIN_77 -to KEY_COL_i4[3]
+set_location_assignment PIN_58 -to iic_SCL
+set_location_assignment PIN_57 -to iic_SDA
+set_location_assignment PIN_59 -to iic_WP
+set_location_assignment PIN_67 -to spi_CLK
+set_location_assignment PIN_69 -to spi_MISO
+set_location_assignment PIN_66 -to spi_MOSI
+set_location_assignment PIN_68 -to spi_nCS
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
+set_global_assignment -name SDC_FILE max51.sdc
+set_global_assignment -name VERILOG_FILE src/max51_top.v
+set_global_assignment -name VERILOG_FILE src/common_reg.v
+set_global_assignment -name VERILOG_FILE src/sram_ctrl.v
+set_global_assignment -name VERILOG_FILE src/cpu_if.v
+set_global_assignment -name VERILOG_FILE src/lcd_ctrl.v
+set_global_assignment -name VERILOG_FILE src/key/key.v
+set_global_assignment -name VERILOG_FILE src/key/key_reg.v
+set_global_assignment -name VERILOG_FILE src/key/key_ctrl.v
+set_global_assignment -name VERILOG_FILE src/sd/sd.v
+set_global_assignment -name VERILOG_FILE src/sd/sd_reg.v
+set_global_assignment -name VERILOG_FILE src/sd/sd_ctrl.v
+set_global_assignment -name VERILOG_FILE src/ec11b/ec11b.v
+set_global_assignment -name VERILOG_FILE src/ec11b/ec11b_reg.v
+set_global_assignment -name VERILOG_FILE src/ec11b/ec11b_ctrl.v
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"

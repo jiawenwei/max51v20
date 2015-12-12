@@ -1,0 +1,851 @@
+Design Assistant report for max51
+Sun Dec 13 00:35:00 2015
+Quartus II Version 10.0 Build 262 08/18/2010 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Design Assistant Summary
+  3. Design Assistant Settings
+  4. Critical Violations
+  5. High Violations
+  6. Medium Violations
+  7. Information only Violations
+  8. Design Assistant Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Design Assistant Summary                                                ;
++-----------------------------------+-------------------------------------+
+; Design Assistant Status           ; Analyzed - Sun Dec 13 00:35:00 2015 ;
+; Revision Name                     ; max51                               ;
+; Top-level Entity Name             ; max51_top                           ;
+; Family                            ; MAX II                              ;
+; Total Critical Violations         ; 1                                   ;
+; - Rule C101                       ; 1                                   ;
+; Total High Violations             ; 118                                 ;
+; - Rule A108                       ; 81                                  ;
+; - Rule S102                       ; 13                                  ;
+; - Rule D101                       ; 8                                   ;
+; - Rule D103                       ; 16                                  ;
+; Total Medium Violations           ; 5                                   ;
+; - Rule C103                       ; 1                                   ;
+; - Rule C104                       ; 2                                   ;
+; - Rule R102                       ; 1                                   ;
+; - Rule D102                       ; 1                                   ;
+; Total Information only Violations ; 54                                  ;
+; - Rule T101                       ; 4                                   ;
+; - Rule T102                       ; 50                                  ;
++-----------------------------------+-------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design Assistant Settings                                                                                                                                                                                                                                                                                ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+; Option                                                                                                                                                                                                                                                                               ; Setting      ; To ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+; Design Assistant mode                                                                                                                                                                                                                                                                ; Post-Fitting ;    ;
+; Threshold value for clock net not mapped to clock spines rule                                                                                                                                                                                                                        ; 25           ;    ;
+; Minimum number of clock port feed by gated clocks                                                                                                                                                                                                                                    ; 30           ;    ;
+; Minimum number of node fan-out                                                                                                                                                                                                                                                       ; 30           ;    ;
+; Maximum number of nodes to report                                                                                                                                                                                                                                                    ; 50           ;    ;
+; Rule C101: Gated clock should be implemented according to the Altera standard scheme                                                                                                                                                                                                 ; On           ;    ;
+; Rule C102: Logic cell should not be used to generate an inverted clock signal                                                                                                                                                                                                        ; On           ;    ;
+; Rule C103: Gated clock does not feed at least a pre-defined number of clock ports to effectively save power                                                                                                                                                                          ; On           ;    ;
+; Rule C104: Clock signal source should drive only clock input ports                                                                                                                                                                                                                   ; On           ;    ;
+; Rule C105: Clock signal should be a global signal (Rule applies during post-fitting analysis. This rule applies during both post-fitting analysis and post-synthesis analysis if the design targets a MAX 3000 or MAX 7000 device. For more information, see the Help for the rule.) ; On           ;    ;
+; Rule C106: Clock signal source should not drive registers triggered by different clock edges                                                                                                                                                                                         ; On           ;    ;
+; Rule R101: Combinational logic used as a reset signal should be synchronized                                                                                                                                                                                                         ; On           ;    ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers                                                                                                                                                                                                ; On           ;    ;
+; Rule R103: External reset signal should be correctly synchronized                                                                                                                                                                                                                    ; On           ;    ;
+; Rule R104: The reset signal that is generated in one clock domain and used in another clock domain should be correctly synchronized                                                                                                                                                  ; On           ;    ;
+; Rule R105: The reset signal that is generated in one clock domain and used in another clock domain should be synchronized                                                                                                                                                            ; On           ;    ;
+; Rule T101: Nodes with more than the specified number of fan-outs                                                                                                                                                                                                                     ; On           ;    ;
+; Rule T102: Top nodes with the highest number of fan-outs                                                                                                                                                                                                                             ; On           ;    ;
+; Rule A101: Design should not contain combinational loops                                                                                                                                                                                                                             ; On           ;    ;
+; Rule A102: Register output should not drive its own control signal directly or through combinational logic                                                                                                                                                                           ; On           ;    ;
+; Rule A103: Design should not contain delay chains                                                                                                                                                                                                                                    ; On           ;    ;
+; Rule A104: Design should not contain ripple clock structures                                                                                                                                                                                                                         ; On           ;    ;
+; Rule A105: Pulses should not be implemented asynchronously                                                                                                                                                                                                                           ; On           ;    ;
+; Rule A106: Multiple pulses should not be generated in design                                                                                                                                                                                                                         ; On           ;    ;
+; Rule A107: Design should not contain SR latches                                                                                                                                                                                                                                      ; On           ;    ;
+; Rule A108: Design should not contain latches                                                                                                                                                                                                                                         ; On           ;    ;
+; Rule S101: Output enable and input of the same tri-state node should not be driven by same signal source                                                                                                                                                                             ; On           ;    ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source                                                                                                                                                                ; On           ;    ;
+; Rule S103: More than one asynchronous port of a register should not be driven by the same signal source                                                                                                                                                                              ; On           ;    ;
+; Rule S104: Clock port and any other port of a register should not be driven by the same signal source                                                                                                                                                                                ; On           ;    ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains                                                                                                                                                                                        ; On           ;    ;
+; Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain                                                                                                                 ; On           ;    ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains                                                                                                                                                                              ; On           ;    ;
+; Rule M101: Data bits are not synchronized when transferred to the state machine of asynchronous clock domains                                                                                                                                                                        ; Off          ;    ;
+; Rule M102: No reset signal defined to initialize the state machine                                                                                                                                                                                                                   ; Off          ;    ;
+; Rule M103: State machine should not contain an unreachable state                                                                                                                                                                                                                     ; Off          ;    ;
+; Rule M104: State machine should not contain a deadlock state                                                                                                                                                                                                                         ; Off          ;    ;
+; Rule M105: State machine should not contain a dead transition                                                                                                                                                                                                                        ; Off          ;    ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Critical Violations                                                                                                                          ;
++--------------------------------------------------------------------------------------+-------------------------------------------------------+
+; Rule name                                                                            ; Name                                                  ;
++--------------------------------------------------------------------------------------+-------------------------------------------------------+
+; Rule C101: Gated clock should be implemented according to the Altera standard scheme ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|Mux0                  ;
+;  Gated clock destination node(s) list                                                ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck               ;
+;  Gated clock destination node(s) list                                                ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo               ;
+;  Gated clock destination node(s) list                                                ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY   ;
+;  Gated clock destination node(s) list                                                ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE ;
+;  Gated clock destination node(s) list                                                ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE    ;
+;  Gated clock destination node(s) list                                                ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]              ;
+;  Gated clock destination node(s) list                                                ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]              ;
+;  Gated clock destination node(s) list                                                ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]              ;
+;  Gated clock destination node(s) list                                                ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]              ;
+;  Gated clock destination node(s) list                                                ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY   ;
++--------------------------------------------------------------------------------------+-------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; High Violations                                                                                                                                                                    ;
++------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
+; Rule name                                                                                                              ; Name                                                      ;
++------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
+; Rule A108: Design should not contain latches - Latch 1                                                                 ;                                                           ;
+;  Latch 1                                                                                                               ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|ec11b_clr_r     ;
+; Rule A108: Design should not contain latches - Latch 2                                                                 ;                                                           ;
+;  Latch 2                                                                                                               ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_intmsk_r    ;
+; Rule A108: Design should not contain latches - Latch 3                                                                 ;                                                           ;
+;  Latch 3                                                                                                               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.POSEDGE_439        ;
+; Rule A108: Design should not contain latches - Latch 4                                                                 ;                                                           ;
+;  Latch 4                                                                                                               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.NEGEDGE_427        ;
+; Rule A108: Design should not contain latches - Latch 5                                                                 ;                                                           ;
+;  Latch 5                                                                                                               ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.IDLE_451           ;
+; Rule A108: Design should not contain latches - Latch 6                                                                 ;                                                           ;
+;  Latch 6                                                                                                               ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]               ;
+; Rule A108: Design should not contain latches - Latch 7                                                                 ;                                                           ;
+;  Latch 7                                                                                                               ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[0]               ;
+; Rule A108: Design should not contain latches - Latch 8                                                                 ;                                                           ;
+;  Latch 8                                                                                                               ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[1]               ;
+; Rule A108: Design should not contain latches - Latch 9                                                                 ;                                                           ;
+;  Latch 9                                                                                                               ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[6]               ;
+; Rule A108: Design should not contain latches - Latch 10                                                                ;                                                           ;
+;  Latch 10                                                                                                              ; common_reg:inst_common_reg|mcu_rddat_o8[0]                ;
+; Rule A108: Design should not contain latches - Latch 11                                                                ;                                                           ;
+;  Latch 11                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[0]             ;
+; Rule A108: Design should not contain latches - Latch 12                                                                ;                                                           ;
+;  Latch 12                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[0] ;
+; Rule A108: Design should not contain latches - Latch 13                                                                ;                                                           ;
+;  Latch 13                                                                                                              ; common_reg:inst_common_reg|mcu_rddat_o8[1]                ;
+; Rule A108: Design should not contain latches - Latch 14                                                                ;                                                           ;
+;  Latch 14                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[1]             ;
+; Rule A108: Design should not contain latches - Latch 15                                                                ;                                                           ;
+;  Latch 15                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[1] ;
+; Rule A108: Design should not contain latches - Latch 16                                                                ;                                                           ;
+;  Latch 16                                                                                                              ; common_reg:inst_common_reg|mcu_rddat_o8[2]                ;
+; Rule A108: Design should not contain latches - Latch 17                                                                ;                                                           ;
+;  Latch 17                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[2]             ;
+; Rule A108: Design should not contain latches - Latch 18                                                                ;                                                           ;
+;  Latch 18                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[2] ;
+; Rule A108: Design should not contain latches - Latch 19                                                                ;                                                           ;
+;  Latch 19                                                                                                              ; common_reg:inst_common_reg|mcu_rddat_o8[3]                ;
+; Rule A108: Design should not contain latches - Latch 20                                                                ;                                                           ;
+;  Latch 20                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[3]             ;
+; Rule A108: Design should not contain latches - Latch 21                                                                ;                                                           ;
+;  Latch 21                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[3] ;
+; Rule A108: Design should not contain latches - Latch 22                                                                ;                                                           ;
+;  Latch 22                                                                                                              ; common_reg:inst_common_reg|mcu_rddat_o8[4]                ;
+; Rule A108: Design should not contain latches - Latch 23                                                                ;                                                           ;
+;  Latch 23                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[4]             ;
+; Rule A108: Design should not contain latches - Latch 24                                                                ;                                                           ;
+;  Latch 24                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[4] ;
+; Rule A108: Design should not contain latches - Latch 25                                                                ;                                                           ;
+;  Latch 25                                                                                                              ; common_reg:inst_common_reg|mcu_rddat_o8[5]                ;
+; Rule A108: Design should not contain latches - Latch 26                                                                ;                                                           ;
+;  Latch 26                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[5]             ;
+; Rule A108: Design should not contain latches - Latch 27                                                                ;                                                           ;
+;  Latch 27                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[5] ;
+; Rule A108: Design should not contain latches - Latch 28                                                                ;                                                           ;
+;  Latch 28                                                                                                              ; common_reg:inst_common_reg|mcu_rddat_o8[6]                ;
+; Rule A108: Design should not contain latches - Latch 29                                                                ;                                                           ;
+;  Latch 29                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[6]             ;
+; Rule A108: Design should not contain latches - Latch 30                                                                ;                                                           ;
+;  Latch 30                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[6] ;
+; Rule A108: Design should not contain latches - Latch 31                                                                ;                                                           ;
+;  Latch 31                                                                                                              ; common_reg:inst_common_reg|mcu_rddat_o8[7]                ;
+; Rule A108: Design should not contain latches - Latch 32                                                                ;                                                           ;
+;  Latch 32                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[7]             ;
+; Rule A108: Design should not contain latches - Latch 33                                                                ;                                                           ;
+;  Latch 33                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[7] ;
+; Rule A108: Design should not contain latches - Latch 34                                                                ;                                                           ;
+;  Latch 34                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[5]               ;
+; Rule A108: Design should not contain latches - Latch 35                                                                ;                                                           ;
+;  Latch 35                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[0]      ;
+; Rule A108: Design should not contain latches - Latch 36                                                                ;                                                           ;
+;  Latch 36                                                                                                              ; common_reg:inst_common_reg|lcd_rst_o                      ;
+; Rule A108: Design should not contain latches - Latch 37                                                                ;                                                           ;
+;  Latch 37                                                                                                              ; common_reg:inst_common_reg|sound_o                        ;
+; Rule A108: Design should not contain latches - Latch 38                                                                ;                                                           ;
+;  Latch 38                                                                                                              ; common_reg:inst_common_reg|led_o8[0]                      ;
+; Rule A108: Design should not contain latches - Latch 39                                                                ;                                                           ;
+;  Latch 39                                                                                                              ; common_reg:inst_common_reg|lcd_bk_o                       ;
+; Rule A108: Design should not contain latches - Latch 40                                                                ;                                                           ;
+;  Latch 40                                                                                                              ; common_reg:inst_common_reg|test_r[0]                      ;
+; Rule A108: Design should not contain latches - Latch 41                                                                ;                                                           ;
+;  Latch 41                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[0]               ;
+; Rule A108: Design should not contain latches - Latch 42                                                                ;                                                           ;
+;  Latch 42                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[0]                  ;
+; Rule A108: Design should not contain latches - Latch 43                                                                ;                                                           ;
+;  Latch 43                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[1]      ;
+; Rule A108: Design should not contain latches - Latch 44                                                                ;                                                           ;
+;  Latch 44                                                                                                              ; common_reg:inst_common_reg|test_r[1]                      ;
+; Rule A108: Design should not contain latches - Latch 45                                                                ;                                                           ;
+;  Latch 45                                                                                                              ; common_reg:inst_common_reg|led_o8[1]                      ;
+; Rule A108: Design should not contain latches - Latch 46                                                                ;                                                           ;
+;  Latch 46                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[1]               ;
+; Rule A108: Design should not contain latches - Latch 47                                                                ;                                                           ;
+;  Latch 47                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[1]                  ;
+; Rule A108: Design should not contain latches - Latch 48                                                                ;                                                           ;
+;  Latch 48                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[2]      ;
+; Rule A108: Design should not contain latches - Latch 49                                                                ;                                                           ;
+;  Latch 49                                                                                                              ; common_reg:inst_common_reg|led_o8[2]                      ;
+; Rule A108: Design should not contain latches - Latch 50                                                                ;                                                           ;
+;  Latch 50                                                                                                              ; common_reg:inst_common_reg|test_r[2]                      ;
+; Rule A108: Design should not contain latches - Latch 51                                                                ;                                                           ;
+;  Latch 51                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[2]               ;
+; Rule A108: Design should not contain latches - Latch 52                                                                ;                                                           ;
+;  Latch 52                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[2]               ;
+; Rule A108: Design should not contain latches - Latch 53                                                                ;                                                           ;
+;  Latch 53                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[2]                  ;
+; Rule A108: Design should not contain latches - Latch 54                                                                ;                                                           ;
+;  Latch 54                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[3]      ;
+; Rule A108: Design should not contain latches - Latch 55                                                                ;                                                           ;
+;  Latch 55                                                                                                              ; common_reg:inst_common_reg|test_r[3]                      ;
+; Rule A108: Design should not contain latches - Latch 56                                                                ;                                                           ;
+;  Latch 56                                                                                                              ; common_reg:inst_common_reg|led_o8[3]                      ;
+; Rule A108: Design should not contain latches - Latch 57                                                                ;                                                           ;
+;  Latch 57                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[3]               ;
+; Rule A108: Design should not contain latches - Latch 58                                                                ;                                                           ;
+;  Latch 58                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[3]               ;
+; Rule A108: Design should not contain latches - Latch 59                                                                ;                                                           ;
+;  Latch 59                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[3]                  ;
+; Rule A108: Design should not contain latches - Latch 60                                                                ;                                                           ;
+;  Latch 60                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[4]      ;
+; Rule A108: Design should not contain latches - Latch 61                                                                ;                                                           ;
+;  Latch 61                                                                                                              ; common_reg:inst_common_reg|led_o8[4]                      ;
+; Rule A108: Design should not contain latches - Latch 62                                                                ;                                                           ;
+;  Latch 62                                                                                                              ; common_reg:inst_common_reg|test_r[4]                      ;
+; Rule A108: Design should not contain latches - Latch 63                                                                ;                                                           ;
+;  Latch 63                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[4]               ;
+; Rule A108: Design should not contain latches - Latch 64                                                                ;                                                           ;
+;  Latch 64                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[4]               ;
+; Rule A108: Design should not contain latches - Latch 65                                                                ;                                                           ;
+;  Latch 65                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[4]                  ;
+; Rule A108: Design should not contain latches - Latch 66                                                                ;                                                           ;
+;  Latch 66                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[5]      ;
+; Rule A108: Design should not contain latches - Latch 67                                                                ;                                                           ;
+;  Latch 67                                                                                                              ; common_reg:inst_common_reg|led_o8[5]                      ;
+; Rule A108: Design should not contain latches - Latch 68                                                                ;                                                           ;
+;  Latch 68                                                                                                              ; common_reg:inst_common_reg|test_r[5]                      ;
+; Rule A108: Design should not contain latches - Latch 69                                                                ;                                                           ;
+;  Latch 69                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[5]               ;
+; Rule A108: Design should not contain latches - Latch 70                                                                ;                                                           ;
+;  Latch 70                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[5]                  ;
+; Rule A108: Design should not contain latches - Latch 71                                                                ;                                                           ;
+;  Latch 71                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[6]      ;
+; Rule A108: Design should not contain latches - Latch 72                                                                ;                                                           ;
+;  Latch 72                                                                                                              ; common_reg:inst_common_reg|led_o8[6]                      ;
+; Rule A108: Design should not contain latches - Latch 73                                                                ;                                                           ;
+;  Latch 73                                                                                                              ; common_reg:inst_common_reg|test_r[6]                      ;
+; Rule A108: Design should not contain latches - Latch 74                                                                ;                                                           ;
+;  Latch 74                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[6]               ;
+; Rule A108: Design should not contain latches - Latch 75                                                                ;                                                           ;
+;  Latch 75                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[6]                  ;
+; Rule A108: Design should not contain latches - Latch 76                                                                ;                                                           ;
+;  Latch 76                                                                                                              ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[7]      ;
+; Rule A108: Design should not contain latches - Latch 77                                                                ;                                                           ;
+;  Latch 77                                                                                                              ; common_reg:inst_common_reg|test_r[7]                      ;
+; Rule A108: Design should not contain latches - Latch 78                                                                ;                                                           ;
+;  Latch 78                                                                                                              ; common_reg:inst_common_reg|led_o8[7]                      ;
+; Rule A108: Design should not contain latches - Latch 79                                                                ;                                                           ;
+;  Latch 79                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[7]               ;
+; Rule A108: Design should not contain latches - Latch 80                                                                ;                                                           ;
+;  Latch 80                                                                                                              ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[7]                  ;
+; Rule A108: Design should not contain latches - Latch 81                                                                ;                                                           ;
+;  Latch 81                                                                                                              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok                  ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]                ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[2]             ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]                ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[0]             ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[1]             ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]                ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]                ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]                ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]                ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]                ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]                ;
+;  Synchronous and reset port source node(s) list                                                                        ; RESET_N_i                                                 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 1            ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[6]                            ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[2]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[0]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[1]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]                ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 2            ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[5]                            ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[2]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[0]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[1]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]                ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 3            ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[4]                            ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[2]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[0]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[1]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]                ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 4            ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[7]                            ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[2]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[0]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[1]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]                ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 5            ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[0]                            ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[2]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[0]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[1]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]                ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 6            ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[1]                            ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[2]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[0]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[1]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]                ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 7            ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[3]                            ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[2]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[0]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[1]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]                ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 8            ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[2]                            ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[2]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[0]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[1]             ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]                ;
+;  Destination node(s) from clock "CLK_50M_i"                                                                            ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]                ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 1  ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[6]                            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy2       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 2  ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[5]                            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy2       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 3  ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[4]                            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy2       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 4  ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[15]                           ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 5  ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[14]                           ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 6  ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[13]                           ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 7  ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[12]                           ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 8  ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[7]                            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy2       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 9  ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[11]                           ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 10 ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[10]                           ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 11 ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[9]                            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 12 ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[8]                            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 13 ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[0]                            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy2       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 14 ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[1]                            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy2       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 15 ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[3]                            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy2       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 16 ;                                                           ;
+;  Source node(s) from clock "CPU_ALE_i"                                                                                 ; cpu_if:inst_cpu_if|cpu_addr[2]                            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy2       ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy2            ;
++------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Medium Violations                                                                                                                                                                                                                           ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+; Rule name                                                                                                                                                                          ; Name                                                   ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+; Rule C103: Gated clock does not feed at least a pre-defined number of clock ports to effectively save power                                                                        ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|Mux0                   ;
+;  Gated clock destination node(s) list                                                                                                                                              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sck                ;
+;  Gated clock destination node(s) list                                                                                                                                              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo                ;
+;  Gated clock destination node(s) list                                                                                                                                              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY    ;
+;  Gated clock destination node(s) list                                                                                                                                              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.POSEDGE  ;
+;  Gated clock destination node(s) list                                                                                                                                              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE     ;
+;  Gated clock destination node(s) list                                                                                                                                              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]               ;
+;  Gated clock destination node(s) list                                                                                                                                              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[2]               ;
+;  Gated clock destination node(s) list                                                                                                                                              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[1]               ;
+;  Gated clock destination node(s) list                                                                                                                                              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[0]               ;
+;  Gated clock destination node(s) list                                                                                                                                              ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.READY    ;
+; Rule C104: Clock signal source should drive only clock input ports                                                                                                                 ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz ;
+;  Clock ports destination node(s) list                                                                                                                                              ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[0]  ;
+;  Clock ports destination node(s) list                                                                                                                                              ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1    ;
+;  Clock ports destination node(s) list                                                                                                                                              ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy2    ;
+;  Clock ports destination node(s) list                                                                                                                                              ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[1]  ;
+;  Clock ports destination node(s) list                                                                                                                                              ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[2]  ;
+;  Clock ports destination node(s) list                                                                                                                                              ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[3]  ;
+;  Clock ports destination node(s) list                                                                                                                                              ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[4]  ;
+;  Clock ports destination node(s) list                                                                                                                                              ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[5]  ;
+;  Clock ports destination node(s) list                                                                                                                                              ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[6]  ;
+;  Clock ports destination node(s) list                                                                                                                                              ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[7]  ;
+; Rule C104: Clock signal source should drive only clock input ports                                                                                                                 ; key:inst_key|key_ctrl:inst_key_ctrl|clk_500khz         ;
+;  Clock ports destination node(s) list                                                                                                                                              ; key:inst_key|key_ctrl:inst_key_ctrl|row_r2[0]          ;
+;  Clock ports destination node(s) list                                                                                                                                              ; key:inst_key|key_ctrl:inst_key_ctrl|state.000          ;
+;  Clock ports destination node(s) list                                                                                                                                              ; key:inst_key|key_ctrl:inst_key_ctrl|state.001          ;
+;  Clock ports destination node(s) list                                                                                                                                              ; key:inst_key|key_ctrl:inst_key_ctrl|row_r2[1]          ;
+;  Clock ports destination node(s) list                                                                                                                                              ; key:inst_key|key_ctrl:inst_key_ctrl|state.010          ;
+;  Clock ports destination node(s) list                                                                                                                                              ; key:inst_key|key_ctrl:inst_key_ctrl|state.101          ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers                                                                                              ; RESET_N_i                                              ;
+;  Reset signal destination node(s) list                                                                                                                                             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[1]  ;
+;  Reset signal destination node(s) list                                                                                                                                             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[2]  ;
+;  Reset signal destination node(s) list                                                                                                                                             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[3]  ;
+;  Reset signal destination node(s) list                                                                                                                                             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[4]  ;
+;  Reset signal destination node(s) list                                                                                                                                             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[5]  ;
+;  Reset signal destination node(s) list                                                                                                                                             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[6]  ;
+;  Reset signal destination node(s) list                                                                                                                                             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|lva_r8[7]  ;
+;  Reset signal destination node(s) list                                                                                                                                             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|rva_r8[1]  ;
+;  Reset signal destination node(s) list                                                                                                                                             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|rva_r8[2]  ;
+;  Reset signal destination node(s) list                                                                                                                                             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|rva_r8[3]  ;
+; Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain - Structure 1 ;                                                        ;
+;  Source node(s) from clock "CPU_ALE_i" - (Bus)                                                                                                                                     ; cpu_if:inst_cpu_if|cpu_addr                            ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                                                                                       ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1    ;
+;  Synchronizer node(s) from clock "CLK_50M_i"                                                                                                                                       ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1         ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Information only Violations                                                                                                              ;
++----------------------------------------------------------------------+---------------------------------------------------------+---------+
+; Rule name                                                            ; Name                                                    ; Fan-Out ;
++----------------------------------------------------------------------+---------------------------------------------------------+---------+
+; Rule T101: Nodes with more than the specified number of fan-outs     ; RESET_N_i                                               ; 213     ;
+; Rule T101: Nodes with more than the specified number of fan-outs     ; CLK_50M_i                                               ; 42      ;
+; Rule T101: Nodes with more than the specified number of fan-outs     ; cpu_if:inst_cpu_if|cpu_addr[0]                          ; 34      ;
+; Rule T101: Nodes with more than the specified number of fan-outs     ; cpu_if:inst_cpu_if|cpu_addr[1]                          ; 34      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; RESET_N_i                                               ; 213     ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; CLK_50M_i                                               ; 42      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|cpu_addr[0]                          ; 34      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|cpu_addr[1]                          ; 34      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|Equal3~0                             ; 27      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|mcu_cs_o8[7]                         ; 26      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz  ; 23      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|mcu_cs_o8[7]~1                       ; 21      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|Mux0                    ; 20      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|cpu_addr[2]                          ; 17      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|LessThan0~3 ; 17      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|debug_o8[4] ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; CPU_ALE_i                                               ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY     ; 15      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|Decoder0~1    ; 15      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|cpu_addr[3]                          ; 14      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; sd:inst_sd|sd_reg:inst_sd_reg|Selector7~2               ; 14      ;
+; Rule T102: Top nodes with the highest number of fan-outs (tri-state) ; CPU_DA_io8[0]~0                                         ; 13      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|mcu_cs_o8[7]~2                       ; 13      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; CPU_nWR_i                                               ; 12      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|WideOr3                 ; 11      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.NEGEDGE_427      ; 11      ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|mcu_rddat[4]~2                       ; 9       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|mcu_rddat[4]~1                       ; 9       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; V3_AD_DIR_o~0                                           ; 9       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|cpu_addr[5]                          ; 9       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|Equal1~0                             ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]~0           ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; sram_ctrl:inst_sram_ctrl|sram_data_io8~8                ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs (tri-state) ; CPU_DA_io8[6]~6                                         ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|cpu_addr[6]                          ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|always0~0     ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs (tri-state) ; CPU_DA_io8[1]~1                                         ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[7]~0           ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; sd:inst_sd|sd_reg:inst_sd_reg|always0~0                 ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|mcu_rddat[4]~3                       ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs (tri-state) ; CPU_DA_io8[5]~5                                         ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[7]~0              ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; common_reg:inst_common_reg|test_r[7]~0                  ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; common_reg:inst_common_reg|led_o8[7]~0                  ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[0]~0  ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs (tri-state) ; CPU_DA_io8[4]~4                                         ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; common_reg:inst_common_reg|always0~0                    ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs (tri-state) ; CPU_DA_io8[7]~7                                         ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs (tri-state) ; CPU_DA_io8[2]~2                                         ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs (tri-state) ; CPU_DA_io8[3]~3                                         ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; cpu_if:inst_cpu_if|mcu_rddat[4]~5                       ; 8       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|Decoder0~3    ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|Decoder0~5    ; 7       ;
+; Rule T102: Top nodes with the highest number of fan-outs             ; key:inst_key|key_ctrl:inst_key_ctrl|clk_500khz          ; 7       ;
++----------------------------------------------------------------------+---------------------------------------------------------+---------+
+
+
++---------------------------+
+; Design Assistant Messages ;
++---------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Design Assistant
+    Info: Version 10.0 Build 262 08/18/2010 Service Pack 1 SJ Full Version
+    Info: Processing started: Sun Dec 13 00:35:00 2015
+Info: Command: quartus_drc --read_settings_files=off --write_settings_files=off max51 -c max51
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "inst_ec11b|inst_ec11b_ctrl|clr_dy1|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_intmsk_r|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|nstate.POSEDGE_439|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|nstate.NEGEDGE_427|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|nstate.IDLE_451|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[7]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|ssppres_r8[0]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|ssppres_r8[1]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[6]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[0]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[0]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[0]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[1]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[1]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[1]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[2]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[2]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[2]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[3]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[3]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[3]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[4]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[4]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[4]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[5]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[5]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[5]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[6]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[6]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[6]|combout" is a latch
+    Warning: Node "inst_common_reg|mcu_rddat_o8[7]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|mcu_rddat_o8[7]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|mcu_rddat_o8[7]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[5]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[0]|combout" is a latch
+    Warning: Node "inst_common_reg|lcd_rst_o|combout" is a latch
+    Warning: Node "inst_common_reg|sound_o|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[0]|combout" is a latch
+    Warning: Node "inst_common_reg|lcd_bk_o|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[0]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[0]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[0]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[1]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[1]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[1]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[1]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[1]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[2]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[2]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[2]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[2]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|ssppres_r8[2]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[2]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[3]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[3]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[3]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[3]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssppres_o8[3]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[3]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[4]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[4]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[4]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssptdat_o8[4]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssppres_o8[4]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[4]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[5]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[5]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[5]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssppres_o8[5]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[5]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[6]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[6]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[6]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssppres_o8[6]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[6]|combout" is a latch
+    Warning: Node "inst_ec11b|inst_ec11b_reg|test_r8[7]|combout" is a latch
+    Warning: Node "inst_common_reg|test_r[7]|combout" is a latch
+    Warning: Node "inst_common_reg|led_o8[7]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|ssppres_o8[7]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_reg|test_r8[7]|combout" is a latch
+    Warning: Node "inst_sd|inst_sd_ctrl|shift_ok_dy1|combout" is a latch
+Info: Reading SDC File: 'max51.sdc'
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[1]~38 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[1]~38COUT1_69 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[2]~40 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[2]~40COUT1_71 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[3]~42 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[3]~42COUT1_73 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[4]~44 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[5]~46 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[5]~46COUT1_75 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[6]~48 could not be matched with a net
+Warning: Ignored filter at max51.sdc(48): inst_sd|inst_sd_ctrl|clk_cnt[6]~48COUT1_77 could not be matched with a net
+Warning: Node: ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: CPU_ALE_i was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: key:inst_key|key_ctrl:inst_key_ctrl|clk_500khz was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: CPU_nWR_i was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE was determined to be a clock but was found without an associated clock assignment.
+Warning: Node: CPU_nRD_i was determined to be a clock but was found without an associated clock assignment.
+Critical Warning: (Critical) Rule C101: Gated clock should be implemented according to the Altera standard scheme. Found 1 node(s) related to this rule.
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|Mux0"
+Critical Warning: (High) Rule A108: Design should not contain latches. Found 81 latch(es) related to this rule.
+    Critical Warning: Node  "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|ec11b_clr_r"
+    Critical Warning: Node  "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_intmsk_r"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.POSEDGE_439"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.NEGEDGE_427"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.IDLE_451"
+    Critical Warning: Node  "sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]"
+    Critical Warning: Node  "sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[0]"
+    Critical Warning: Node  "sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[1]"
+    Critical Warning: Node  "sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[6]"
+    Critical Warning: Node  "common_reg:inst_common_reg|mcu_rddat_o8[0]"
+    Critical Warning: Node  "sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[0]"
+    Critical Warning: Node  "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[0]"
+    Critical Warning: Node  "common_reg:inst_common_reg|mcu_rddat_o8[1]"
+    Critical Warning: Node  "sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[1]"
+    Critical Warning: Node  "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[1]"
+    Critical Warning: Node  "common_reg:inst_common_reg|mcu_rddat_o8[2]"
+    Critical Warning: Node  "sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[2]"
+    Critical Warning: Node  "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[2]"
+    Critical Warning: Node  "common_reg:inst_common_reg|mcu_rddat_o8[3]"
+    Critical Warning: Node  "sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[3]"
+    Critical Warning: Node  "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[3]"
+    Critical Warning: Node  "common_reg:inst_common_reg|mcu_rddat_o8[4]"
+    Critical Warning: Node  "sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[4]"
+    Critical Warning: Node  "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[4]"
+    Critical Warning: Node  "common_reg:inst_common_reg|mcu_rddat_o8[5]"
+    Critical Warning: Node  "sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[5]"
+    Critical Warning: Node  "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[5]"
+    Critical Warning: Node  "common_reg:inst_common_reg|mcu_rddat_o8[6]"
+    Critical Warning: Node  "sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[6]"
+    Critical Warning: Node  "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[6]"
+    Info: Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Critical Warning: (High) Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source. Found 13 node(s) related to this rule.
+    Critical Warning: Node  "ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clr_dy1"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[2]"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|sttshift_i_dy1"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[0]"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|ssppres_r8[1]"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]"
+    Critical Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]"
+Critical Warning: (High) Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains. (Value defined:2). Found 8 asynchronous clock domain interface structure(s) related to this rule.
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[6]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[5]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[4]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[7]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[0]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[1]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[3]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[2]"
+Critical Warning: (High) Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains. (Value defined:2). Found 16 asynchronous clock domain interface structure(s) related to this rule.
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[6]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[5]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[4]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[15]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[14]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[13]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[12]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[7]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[11]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[10]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[9]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[8]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[0]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[1]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[3]"
+    Critical Warning: Node  "cpu_if:inst_cpu_if|cpu_addr[2]"
+Warning: (Medium) Rule C103: Gated clock does not feed at least a pre-defined number of clock ports to effectively save power. (Value defined:30). Found 1 node(s) related to this rule.
+    Warning: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|Mux0"
+Warning: (Medium) Rule C104: Clock signal source should drive only clock input ports. Found 2 nodes related to this rule.
+    Warning: Node  "ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz"
+    Warning: Node  "key:inst_key|key_ctrl:inst_key_ctrl|clk_500khz"
+Warning: (Medium) Rule R102: External reset signals should be synchronized using two cascaded registers. Found 1 node(s) related to this rule.
+    Warning: Node  "RESET_N_i"
+Warning: (Medium) Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain. (Value defined:2). Found 1 asynchronous clock domain interface structure(s) related to this rule.
+    Warning: Node  "cpu_if:inst_cpu_if|cpu_addr (Bus)"
+Info: (Information) Rule T101: Nodes with more than the specified number of fan-outs. (Value defined:30). Found 4 node(s) with highest fan-out.
+    Info: Node  "RESET_N_i"
+    Info: Node  "CLK_50M_i"
+    Info: Node  "cpu_if:inst_cpu_if|cpu_addr[0]"
+    Info: Node  "cpu_if:inst_cpu_if|cpu_addr[1]"
+Info: (Information) Rule T102: Top nodes with the highest number of fan-outs. (Value defined:50). Found 50 node(s) with highest fan-out.
+    Info: Node  "RESET_N_i"
+    Info: Node  "CLK_50M_i"
+    Info: Node  "cpu_if:inst_cpu_if|cpu_addr[0]"
+    Info: Node  "cpu_if:inst_cpu_if|cpu_addr[1]"
+    Info: Node  "cpu_if:inst_cpu_if|Equal3~0"
+    Info: Node  "cpu_if:inst_cpu_if|mcu_cs_o8[7]"
+    Info: Node  "ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|clk_500khz"
+    Info: Node  "cpu_if:inst_cpu_if|mcu_cs_o8[7]~1"
+    Info: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|Mux0"
+    Info: Node  "cpu_if:inst_cpu_if|cpu_addr[2]"
+    Info: Node  "ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|LessThan0~3"
+    Info: Node  "ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|debug_o8[4]"
+    Info: Node  "CPU_ALE_i"
+    Info: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.DELAY"
+    Info: Node  "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|Decoder0~1"
+    Info: Node  "cpu_if:inst_cpu_if|cpu_addr[3]"
+    Info: Node  "sd:inst_sd|sd_reg:inst_sd_reg|Selector7~2"
+    Info: Node (tri-state) "CPU_DA_io8[0]~0"
+    Info: Node  "cpu_if:inst_cpu_if|mcu_cs_o8[7]~2"
+    Info: Node  "CPU_nWR_i"
+    Info: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|WideOr3"
+    Info: Node  "sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.NEGEDGE_427"
+    Info: Node  "cpu_if:inst_cpu_if|mcu_rddat[4]~2"
+    Info: Node  "cpu_if:inst_cpu_if|mcu_rddat[4]~1"
+    Info: Node  "V3_AD_DIR_o~0"
+    Info: Node  "cpu_if:inst_cpu_if|cpu_addr[5]"
+    Info: Node  "cpu_if:inst_cpu_if|Equal1~0"
+    Info: Node  "sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]~0"
+    Info: Node  "sram_ctrl:inst_sram_ctrl|sram_data_io8~8"
+    Info: Node (tri-state) "CPU_DA_io8[6]~6"
+    Info: Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info: Design Assistant information: finished post-fitting analysis of current design -- generated 54 information messages and 124 warning messages
+Info: Quartus II Design Assistant was successful. 0 errors, 182 warnings
+    Info: Peak virtual memory: 214 megabytes
+    Info: Processing ended: Sun Dec 13 00:35:00 2015
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
+
+

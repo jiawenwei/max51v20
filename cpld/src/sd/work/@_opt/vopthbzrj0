@@ -1,0 +1,64 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\Modelsim\sd
+T_opt
+Z1 V^MSm2_c8GVo5:6obMFSl13
+Z2 04 5 4 work sd_tb fast 0
+Z3 =1-002719917394-51712b73-da-1244
+Z4 o-quiet +acc -auto_acc_if_foreign -work work
+Z5 n@_opt
+Z6 OE;O;6.5;42
+vsd
+Z7 IGa>`QYe;bRCfo2?Q^3Jh11
+Z8 V;j5k=?Pc0A1EceSc4=f9F0
+Z9 w1366370569
+Z10 8./sd.v
+Z11 F./sd.v
+L0 14
+Z12 OE;L;6.5;42
+r1
+31
+Z13 o+acc -work work -L mtiAvm -L mtiOvm -L mtiUPF
+Z14 !s100 XBkM0oVZdE3I7lAda`FDV3
+!s85 0
+vsd_ctrl
+Z15 ISmjdW;^=0451iW7D?=M@81
+Z16 V:oHL`X2L9EPYM7;KXmMNF0
+Z17 w1366371160
+Z18 8./sd_ctrl.v
+Z19 F./sd_ctrl.v
+L0 7
+R12
+r1
+31
+R13
+Z20 !s100 S9L_4;7g44hlg_MbcJZ<o2
+!s85 0
+vsd_reg
+Z21 IH^J46TLlI__04ToMW:gDP2
+Z22 VFJo4`fN65<ime5]Dk]_bX2
+Z23 w1366370719
+Z24 8./sd_reg.v
+Z25 F./sd_reg.v
+L0 3
+R12
+r1
+31
+R13
+Z26 !s100 gRBSSOg39BZ42fiDh;RB53
+!s85 0
+vsd_tb
+Z27 IFI:]5lFh8ekAW`3mUf00N3
+Z28 VFLDkmMM__jdmemQ>:EW;Q3
+Z29 w1366368057
+Z30 8./sd_tb.v
+Z31 F./sd_tb.v
+L0 3
+R12
+r1
+31
+R13
+Z32 !s100 X<nWTRIa8<d>_STQj<6Ij0
+!s85 0

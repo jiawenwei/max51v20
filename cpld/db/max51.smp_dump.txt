@@ -1,0 +1,20 @@
+
+State Machine - |max51_top|key:inst_key|key_ctrl:inst_key_ctrl|state
+Name state.001 state.000 state.101 state.010 
+state.000 0 0 0 0 
+state.001 1 1 0 0 
+state.010 0 1 0 1 
+state.101 0 1 1 0 
+
+State Machine - |max51_top|sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt
+Name dycnt.00000000 
+dycnt.00000001 0 
+dycnt.00000000 1 
+
+State Machine - |max51_top|sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state
+Name current_state.DELAY current_state.NEGEDGE current_state.POSEDGE current_state.READY current_state.IDLE 
+current_state.IDLE 0 0 0 0 0 
+current_state.READY 0 0 0 1 1 
+current_state.POSEDGE 0 0 1 0 1 
+current_state.NEGEDGE 0 1 0 0 1 
+current_state.DELAY 1 0 0 0 1 

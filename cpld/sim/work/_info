@@ -1,0 +1,47 @@
+m255
+K3
+13
+cModel Technology
+dD:\modelsim\mcu51
+vmax51
+V1QG[iYh;7z9N6MG:D@]i72
+r1
+!s85 0
+31
+IUkNacgzJ``NXYHZS=bzI`2
+Z0 dI:\Quartus\max51\sim
+w1417922422
+8../src/max51.v
+F../src/max51.v
+L0 3
+Z1 OE;L;6.5;42
+Z2 o+acc -work work -L mtiAvm -L mtiOvm -L mtiUPF
+!s100 ha84Z28_BCA]C?aEl<JbC3
+vmcu_if
+Vdmjc7mRF;M6GfiCMB0kO>0
+r1
+31
+I`7W7ehN]R9W6_h?XA<Va<0
+dI:\modelsim\mcu51
+w1417537068
+8./mcu_if.v
+F./mcu_if.v
+L0 3
+R1
+R2
+!s85 0
+!s100 _UTUTh>O]Lde9hzHUCKdA3
+vtb
+VV@Xn<HnSRM[I5c1?BH]3a3
+r1
+31
+I@<0:ET;9N1AgYK@XW^XPo3
+Z3 dI:\Quartus\max51\sim
+w1417922624
+8./tb.v
+F./tb.v
+L0 5
+R1
+R2
+!s85 0
+!s100 1f8VkA5hja?_`>b@h@^9m2

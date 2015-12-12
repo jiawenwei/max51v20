@@ -1,0 +1,887 @@
+Analysis & Synthesis report for max51
+Sun Dec 13 00:34:52 2015
+Quartus II Version 10.0 Build 262 08/18/2010 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |max51_top|key:inst_key|key_ctrl:inst_key_ctrl|state
+  9. State Machine - |max51_top|sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt
+ 10. State Machine - |max51_top|sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: sd:inst_sd|sd_ctrl:inst_sd_ctrl
+ 17. Port Connectivity Checks: "key:inst_key|key_ctrl:inst_key_ctrl"
+ 18. Port Connectivity Checks: "key:inst_key|key_reg:inst_key_reg"
+ 19. Port Connectivity Checks: "key:inst_key"
+ 20. Port Connectivity Checks: "ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl"
+ 21. Port Connectivity Checks: "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg"
+ 22. Port Connectivity Checks: "ec11b:inst_ec11b"
+ 23. Port Connectivity Checks: "sd:inst_sd|sd_reg:inst_sd_reg"
+ 24. Port Connectivity Checks: "sd:inst_sd"
+ 25. Port Connectivity Checks: "common_reg:inst_common_reg"
+ 26. Port Connectivity Checks: "cpu_if:inst_cpu_if"
+ 27. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++-----------------------------+------------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Sun Dec 13 00:34:52 2015          ;
+; Quartus II Version          ; 10.0 Build 262 08/18/2010 SP 1 SJ Full Version ;
+; Revision Name               ; max51                                          ;
+; Top-level Entity Name       ; max51_top                                      ;
+; Family                      ; MAX II                                         ;
+; Total logic elements        ; 399                                            ;
+; Total pins                  ; 89                                             ;
+; Total virtual pins          ; 0                                              ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                                  ;
++-----------------------------+------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EPM1270T144C5      ;                    ;
+; Top-level entity name                                                      ; max51_top          ; max51              ;
+; Family name                                                                ; MAX II             ; Stratix II         ;
+; Type of Retiming Performed During Resynthesis                              ; Full               ;                    ;
+; Resynthesis Optimization Effort                                            ; Normal             ;                    ;
+; Physical Synthesis Level for Resynthesis                                   ; Normal             ;                    ;
+; Use Generated Physical Constraints File                                    ; On                 ;                    ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; Off                ; Off                ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                    ;
++----------------------------------+-----------------+------------------------+---------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                ;
++----------------------------------+-----------------+------------------------+---------------------------------------------+
+; src/max51_top.v                  ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/max51_top.v        ;
+; src/common_reg.v                 ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/common_reg.v       ;
+; src/sram_ctrl.v                  ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/sram_ctrl.v        ;
+; src/cpu_if.v                     ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/cpu_if.v           ;
+; src/lcd_ctrl.v                   ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/lcd_ctrl.v         ;
+; src/key/key.v                    ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/key/key.v          ;
+; src/key/key_reg.v                ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/key/key_reg.v      ;
+; src/key/key_ctrl.v               ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/key/key_ctrl.v     ;
+; src/sd/sd.v                      ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/sd/sd.v            ;
+; src/sd/sd_reg.v                  ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/sd/sd_reg.v        ;
+; src/sd/sd_ctrl.v                 ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/sd/sd_ctrl.v       ;
+; src/ec11b/ec11b.v                ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/ec11b/ec11b.v      ;
+; src/ec11b/ec11b_reg.v            ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/ec11b/ec11b_reg.v  ;
+; src/ec11b/ec11b_ctrl.v           ; yes             ; User Verilog HDL File  ; D:/Git/max51v20/cpld/src/ec11b/ec11b_ctrl.v ;
++----------------------------------+-----------------+------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Total logic elements                        ; 399       ;
+;     -- Combinational with no register       ; 293       ;
+;     -- Register only                        ; 16        ;
+;     -- Combinational with a register        ; 90        ;
+;                                             ;           ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 217       ;
+;     -- 3 input functions                    ; 37        ;
+;     -- 2 input functions                    ; 122       ;
+;     -- 1 input functions                    ; 7         ;
+;     -- 0 input functions                    ; 0         ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 359       ;
+;     -- arithmetic mode                      ; 40        ;
+;     -- qfbk mode                            ; 0         ;
+;     -- register cascade mode                ; 0         ;
+;     -- synchronous clear/load mode          ; 38        ;
+;     -- asynchronous clear/load mode         ; 90        ;
+;                                             ;           ;
+; Total registers                             ; 106       ;
+; Total logic cells in carry chains           ; 45        ;
+; I/O pins                                    ; 89        ;
+; Maximum fan-out node                        ; RESET_N_i ;
+; Maximum fan-out                             ; 213       ;
+; Total fan-out                               ; 1568      ;
+; Average fan-out                             ; 3.21      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                             ;
++------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------+--------------+
+; Compilation Hierarchy Node         ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                    ; Library Name ;
++------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------+--------------+
+; |max51_top                         ; 399 (1)     ; 106          ; 0          ; 89   ; 0            ; 293 (1)      ; 16 (0)            ; 90 (0)           ; 45 (0)          ; 0 (0)      ; |max51_top                                             ; work         ;
+;    |common_reg:inst_common_reg|    ; 48 (48)     ; 0            ; 0          ; 0    ; 0            ; 48 (48)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |max51_top|common_reg:inst_common_reg                  ; work         ;
+;    |cpu_if:inst_cpu_if|            ; 96 (96)     ; 16           ; 0          ; 0    ; 0            ; 80 (80)      ; 0 (0)             ; 16 (16)          ; 0 (0)           ; 0 (0)      ; |max51_top|cpu_if:inst_cpu_if                          ; work         ;
+;    |ec11b:inst_ec11b|              ; 109 (0)     ; 39           ; 0          ; 0    ; 0            ; 70 (0)       ; 4 (0)             ; 35 (0)           ; 32 (0)          ; 0 (0)      ; |max51_top|ec11b:inst_ec11b                            ; work         ;
+;       |ec11b_ctrl:inst_ec11b_ctrl| ; 46 (46)     ; 39           ; 0          ; 0    ; 0            ; 7 (7)        ; 4 (4)             ; 35 (35)          ; 32 (32)         ; 0 (0)      ; |max51_top|ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl ; work         ;
+;       |ec11b_reg:inst_ec11b_reg|   ; 63 (63)     ; 0            ; 0          ; 0    ; 0            ; 63 (63)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |max51_top|ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg   ; work         ;
+;    |key:inst_key|                  ; 17 (0)      ; 13           ; 0          ; 0    ; 0            ; 4 (0)        ; 0 (0)             ; 13 (0)           ; 6 (0)           ; 0 (0)      ; |max51_top|key:inst_key                                ; work         ;
+;       |key_ctrl:inst_key_ctrl|     ; 17 (17)     ; 13           ; 0          ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 13 (13)          ; 6 (6)           ; 0 (0)      ; |max51_top|key:inst_key|key_ctrl:inst_key_ctrl         ; work         ;
+;    |lcd_ctrl:inst_lcd_ctrl|        ; 2 (2)       ; 0            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |max51_top|lcd_ctrl:inst_lcd_ctrl                      ; work         ;
+;    |sd:inst_sd|                    ; 122 (0)     ; 38           ; 0          ; 0    ; 0            ; 84 (0)       ; 12 (0)            ; 26 (0)           ; 7 (0)           ; 0 (0)      ; |max51_top|sd:inst_sd                                  ; work         ;
+;       |sd_ctrl:inst_sd_ctrl|       ; 66 (66)     ; 38           ; 0          ; 0    ; 0            ; 28 (28)      ; 12 (12)           ; 26 (26)          ; 7 (7)           ; 0 (0)      ; |max51_top|sd:inst_sd|sd_ctrl:inst_sd_ctrl             ; work         ;
+;       |sd_reg:inst_sd_reg|         ; 56 (56)     ; 0            ; 0          ; 0    ; 0            ; 56 (56)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |max51_top|sd:inst_sd|sd_reg:inst_sd_reg               ; work         ;
+;    |sram_ctrl:inst_sram_ctrl|      ; 4 (4)       ; 0            ; 0          ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |max51_top|sram_ctrl:inst_sram_ctrl                    ; work         ;
++------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------+
+; State Machine - |max51_top|key:inst_key|key_ctrl:inst_key_ctrl|state ;
++-----------+-----------+-----------+-----------+----------------------+
+; Name      ; state.001 ; state.000 ; state.101 ; state.010            ;
++-----------+-----------+-----------+-----------+----------------------+
+; state.000 ; 0         ; 0         ; 0         ; 0                    ;
+; state.001 ; 1         ; 1         ; 0         ; 0                    ;
+; state.010 ; 0         ; 1         ; 0         ; 1                    ;
+; state.101 ; 0         ; 1         ; 1         ; 0                    ;
++-----------+-----------+-----------+-----------+----------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------+
+; State Machine - |max51_top|sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt ;
++----------------+-------------------------------------------------+
+; Name           ; dycnt.00000000                                  ;
++----------------+-------------------------------------------------+
+; dycnt.00000001 ; 0                                               ;
+; dycnt.00000000 ; 1                                               ;
++----------------+-------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |max51_top|sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state                                                               ;
++-----------------------+---------------------+-----------------------+-----------------------+---------------------+--------------------+
+; Name                  ; current_state.DELAY ; current_state.NEGEDGE ; current_state.POSEDGE ; current_state.READY ; current_state.IDLE ;
++-----------------------+---------------------+-----------------------+-----------------------+---------------------+--------------------+
+; current_state.IDLE    ; 0                   ; 0                     ; 0                     ; 0                   ; 0                  ;
+; current_state.READY   ; 0                   ; 0                     ; 0                     ; 1                   ; 1                  ;
+; current_state.POSEDGE ; 0                   ; 0                     ; 1                     ; 0                   ; 1                  ;
+; current_state.NEGEDGE ; 0                   ; 1                     ; 0                     ; 0                   ; 1                  ;
+; current_state.DELAY   ; 1                   ; 0                     ; 0                     ; 0                   ; 1                  ;
++-----------------------+---------------------+-----------------------+-----------------------+---------------------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                         ;
++-----------------------------------------------------------+--------------------------------------------------------+------------------------+
+; Latch Name                                                ; Latch Enable Signal                                    ; Free of Timing Hazards ;
++-----------------------------------------------------------+--------------------------------------------------------+------------------------+
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_intmsk_r    ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_intmsk_r ; yes                    ;
+; cpu_if:inst_cpu_if|mcu_cs_o8[7]                           ; VCC                                                    ; yes                    ;
+; common_reg:inst_common_reg|lcd_bk_o                       ; common_reg:inst_common_reg|lcd_bk_o                    ; yes                    ;
+; common_reg:inst_common_reg|lcd_rst_o                      ; common_reg:inst_common_reg|lcd_rst_o                   ; yes                    ;
+; cpu_if:inst_cpu_if|mcu_cs_o8[0]                           ; VCC                                                    ; yes                    ;
+; common_reg:inst_common_reg|sound_o                        ; common_reg:inst_common_reg|sound_o                     ; yes                    ;
+; cpu_if:inst_cpu_if|mcu_cs_o8[2]                           ; VCC                                                    ; yes                    ;
+; cpu_if:inst_cpu_if|mcu_cs_o8[3]                           ; VCC                                                    ; yes                    ;
+; cpu_if:inst_cpu_if|mcu_cs_o8[1]                           ; VCC                                                    ; yes                    ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.POSEDGE_439        ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|Selector20             ; yes                    ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.NEGEDGE_427        ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|Selector20             ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|ec11b_clr_r     ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|ec11b_clr_r  ; yes                    ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.IDLE_451           ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|Selector22             ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]            ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[0] ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|always0      ; yes                    ;
+; common_reg:inst_common_reg|mcu_rddat_o8[0]                ; common_reg:inst_common_reg|always0                     ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[0]             ; sd:inst_sd|sd_reg:inst_sd_reg|always0                  ; yes                    ;
+; cpu_if:inst_cpu_if|mcu_cs_o8[6]                           ; VCC                                                    ; yes                    ;
+; cpu_if:inst_cpu_if|mcu_cs_o8[5]                           ; VCC                                                    ; yes                    ;
+; cpu_if:inst_cpu_if|mcu_cs_o8[4]                           ; VCC                                                    ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[1] ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|always0      ; yes                    ;
+; common_reg:inst_common_reg|mcu_rddat_o8[1]                ; common_reg:inst_common_reg|always0                     ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[1]             ; sd:inst_sd|sd_reg:inst_sd_reg|always0                  ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[2] ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|always0      ; yes                    ;
+; common_reg:inst_common_reg|mcu_rddat_o8[2]                ; common_reg:inst_common_reg|always0                     ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[2]             ; sd:inst_sd|sd_reg:inst_sd_reg|always0                  ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[3] ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|always0      ; yes                    ;
+; common_reg:inst_common_reg|mcu_rddat_o8[3]                ; common_reg:inst_common_reg|always0                     ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[3]             ; sd:inst_sd|sd_reg:inst_sd_reg|always0                  ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[4] ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|always0      ; yes                    ;
+; common_reg:inst_common_reg|mcu_rddat_o8[4]                ; common_reg:inst_common_reg|always0                     ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[4]             ; sd:inst_sd|sd_reg:inst_sd_reg|always0                  ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[5] ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|always0      ; yes                    ;
+; common_reg:inst_common_reg|mcu_rddat_o8[5]                ; common_reg:inst_common_reg|always0                     ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[5]             ; sd:inst_sd|sd_reg:inst_sd_reg|always0                  ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[6] ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|always0      ; yes                    ;
+; common_reg:inst_common_reg|mcu_rddat_o8[6]                ; common_reg:inst_common_reg|always0                     ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[6]             ; sd:inst_sd|sd_reg:inst_sd_reg|always0                  ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_rddat_o8[7] ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|always0      ; yes                    ;
+; common_reg:inst_common_reg|mcu_rddat_o8[7]                ; common_reg:inst_common_reg|always0                     ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|mcu_rddat_o8[7]             ; sd:inst_sd|sd_reg:inst_sd_reg|always0                  ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[0]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[1]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[2]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[6]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]            ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[0]      ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[0]   ; yes                    ;
+; common_reg:inst_common_reg|led_o8[0]                      ; common_reg:inst_common_reg|led_o8[7]                   ; yes                    ;
+; common_reg:inst_common_reg|test_r[0]                      ; common_reg:inst_common_reg|test_r[7]                   ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[0]                  ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[7]               ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[1]      ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[0]   ; yes                    ;
+; common_reg:inst_common_reg|led_o8[1]                      ; common_reg:inst_common_reg|led_o8[7]                   ; yes                    ;
+; common_reg:inst_common_reg|test_r[1]                      ; common_reg:inst_common_reg|test_r[7]                   ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[1]                  ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[7]               ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[2]      ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[0]   ; yes                    ;
+; common_reg:inst_common_reg|led_o8[2]                      ; common_reg:inst_common_reg|led_o8[7]                   ; yes                    ;
+; common_reg:inst_common_reg|test_r[2]                      ; common_reg:inst_common_reg|test_r[7]                   ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[2]                  ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[7]               ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[3]      ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[0]   ; yes                    ;
+; common_reg:inst_common_reg|led_o8[3]                      ; common_reg:inst_common_reg|led_o8[7]                   ; yes                    ;
+; common_reg:inst_common_reg|test_r[3]                      ; common_reg:inst_common_reg|test_r[7]                   ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[3]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[3]                  ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[7]               ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[4]      ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[0]   ; yes                    ;
+; common_reg:inst_common_reg|led_o8[4]                      ; common_reg:inst_common_reg|led_o8[7]                   ; yes                    ;
+; common_reg:inst_common_reg|test_r[4]                      ; common_reg:inst_common_reg|test_r[7]                   ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[4]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[4]                  ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[7]               ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[5]      ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[0]   ; yes                    ;
+; common_reg:inst_common_reg|led_o8[5]                      ; common_reg:inst_common_reg|led_o8[7]                   ; yes                    ;
+; common_reg:inst_common_reg|test_r[5]                      ; common_reg:inst_common_reg|test_r[7]                   ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[5]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[5]                  ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[7]               ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[6]      ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[0]   ; yes                    ;
+; common_reg:inst_common_reg|led_o8[6]                      ; common_reg:inst_common_reg|led_o8[7]                   ; yes                    ;
+; common_reg:inst_common_reg|test_r[6]                      ; common_reg:inst_common_reg|test_r[7]                   ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[6]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[6]                  ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[7]               ; yes                    ;
+; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[7]      ; ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[0]   ; yes                    ;
+; common_reg:inst_common_reg|led_o8[7]                      ; common_reg:inst_common_reg|led_o8[7]                   ; yes                    ;
+; common_reg:inst_common_reg|test_r[7]                      ; common_reg:inst_common_reg|test_r[7]                   ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[7]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssppres_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[7]                  ; sd:inst_sd|sd_reg:inst_sd_reg|test_r8[7]               ; yes                    ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok                  ; sd:inst_sd|sd_ctrl:inst_sd_ctrl|Selector23             ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[5]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[0]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[1]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[2]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[3]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]            ; yes                    ;
+; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[4]               ; sd:inst_sd|sd_reg:inst_sd_reg|ssptdat_o8[7]            ; yes                    ;
+; Number of user-specified and inferred latches = 89        ;                                                        ;                        ;
++-----------------------------------------------------------+--------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------+
+; Registers Removed During Synthesis                                  ;
++------------------------------------------------+--------------------+
+; Register name                                  ; Reason for Removal ;
++------------------------------------------------+--------------------+
+; key:inst_key|key_ctrl:inst_key_ctrl|state~4    ; Lost fanout        ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~7        ; Lost fanout        ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~8        ; Lost fanout        ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~9        ; Lost fanout        ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~10       ; Lost fanout        ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~11       ; Lost fanout        ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~12       ; Lost fanout        ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~13       ; Lost fanout        ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt.00000000 ; Lost fanout        ;
+; Total Number of Removed Registers = 9          ;                    ;
++------------------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 106   ;
+; Number of registers using Synchronous Clear  ; 38    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 90    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 8     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------+
+; Inverted Register Statistics                                  ;
++-----------------------------------------------------+---------+
+; Inverted Register                                   ; Fan out ;
++-----------------------------------------------------+---------+
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|spi_sdo             ; 2       ;
+; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|axi_dy1 ; 3       ;
+; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|axi_dy2 ; 2       ;
+; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|bxi_dy2 ; 2       ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sbcnt[3]            ; 2       ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]          ; 2       ;
+; ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl|bxi_dy1 ; 1       ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[6]          ; 2       ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[5]          ; 2       ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|st_idle             ; 2       ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[0]          ; 2       ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[1]          ; 2       ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[2]          ; 2       ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[3]          ; 2       ;
+; sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[4]          ; 2       ;
+; Total number of inverted registers = 15             ;         ;
++-----------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |max51_top|sd:inst_sd|sd_ctrl:inst_sd_ctrl|sspsreg[7]          ;
+; 16:1               ; 3 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; No         ; |max51_top|common_reg:inst_common_reg|Selector1                ;
+; 16:1               ; 7 bits    ; 70 LEs        ; 21 LEs               ; 49 LEs                 ; No         ; |max51_top|sd:inst_sd|sd_reg:inst_sd_reg|Selector3             ;
+; 16:1               ; 7 bits    ; 70 LEs        ; 21 LEs               ; 49 LEs                 ; No         ; |max51_top|ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|Selector7 ;
+; 256:1              ; 8 bits    ; 1360 LEs      ; 40 LEs               ; 1320 LEs               ; No         ; |max51_top|cpu_if:inst_cpu_if|mcu_rddat[4]                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sd:inst_sd|sd_ctrl:inst_sd_ctrl ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; IDLE           ; 00001 ; Unsigned Binary                                     ;
+; READY          ; 00010 ; Unsigned Binary                                     ;
+; POSEDGE        ; 00100 ; Unsigned Binary                                     ;
+; NEGEDGE        ; 01000 ; Unsigned Binary                                     ;
+; DELAY          ; 10000 ; Unsigned Binary                                     ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "key:inst_key|key_ctrl:inst_key_ctrl"                                                                                                                                   ;
++-------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                                                                               ;
++-------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; key_o ; Output ; Warning  ; Output or bidir port (3 bits) is smaller than the port expression (8 bits) it drives.  The 5 most-significant bit(s) in the port expression will be connected to GND. ;
+; int_o ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (8 bits) it drives.  The 7 most-significant bit(s) in the port expression will be connected to GND. ;
++-------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "key:inst_key|key_reg:inst_key_reg"                                                                                                                                                   ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                                                          ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; key_int_i ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (1 bits) it drives.  The 7 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "key:inst_key"                                                                                    ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                             ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; mcu_addr_i8[7..4] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; mcu_rddat_o8      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; mcu_int_o         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl"                                                                                                                                     ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                          ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; clr_i ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (1 bits) it drives.  The 7 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg"                                                                                                                                   ;
++-------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                                                               ;
++-------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; ec11b_clr_o ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (8 bits) it drives.  The 7 most-significant bit(s) in the port expression will be connected to GND. ;
++-------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ec11b:inst_ec11b"                                                                                                     ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                                                  ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; mcu_addr_i8[7..4] ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; debug_o8          ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------+
+; Port Connectivity Checks: "sd:inst_sd|sd_reg:inst_sd_reg" ;
++-----------+--------+----------+---------------------------+
+; Port      ; Type   ; Severity ; Details                   ;
++-----------+--------+----------+---------------------------+
+; mcu_int_o ; Output ; Info     ; Explicitly unconnected    ;
++-----------+--------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "sd:inst_sd"              ;
++-------------------+-------+----------+--------------+
+; Port              ; Type  ; Severity ; Details      ;
++-------------------+-------+----------+--------------+
+; mcu_addr_i8[7..4] ; Input ; Info     ; Stuck at GND ;
++-------------------+-------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "common_reg:inst_common_reg"                                                                               ;
++-------------------+---------+------------------+-------------------------------------------------------------------------------------+
+; Port              ; Type    ; Severity         ; Details                                                                             ;
++-------------------+---------+------------------+-------------------------------------------------------------------------------------+
+; mcu_addr_i8[7..4] ; Input   ; Info             ; Stuck at GND                                                                        ;
+; mcu_int_o         ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                              ;
+; led_o8            ; Output  ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------------+---------+------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu_if:inst_cpu_if"                                                                                                                                     ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                                                                                      ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; cpu_cs_ni       ; Input  ; Info     ; Stuck at GND                                                                                                                                 ;
+; mcu_rddat4_i8   ; Input  ; Info     ; Explicitly unconnected                                                                                                                       ;
+; mcu_rddat5_i8   ; Input  ; Info     ; Explicitly unconnected                                                                                                                       ;
+; mcu_rddat6_i8   ; Input  ; Info     ; Explicitly unconnected                                                                                                                       ;
+; mcu_int0_i      ; Input  ; Info     ; Stuck at GND                                                                                                                                 ;
+; mcu_int1_i      ; Input  ; Info     ; Stuck at GND                                                                                                                                 ;
+; mcu_int2_i      ; Input  ; Info     ; Stuck at GND                                                                                                                                 ;
+; mcu_cs_o8[6..5] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; mcu_int4_i      ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 10.0 Build 262 08/18/2010 Service Pack 1 SJ Full Version
+    Info: Processing started: Sun Dec 13 00:34:49 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off max51 -c max51
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Warning (10275): Verilog HDL Module Instantiation warning at max51_top.v(292): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at max51_top.v(309): ignored dangling comma in List of Port Connections
+Info: Found 1 design units, including 1 entities, in source file src/max51_top.v
+    Info: Found entity 1: max51_top
+Info: Found 1 design units, including 1 entities, in source file src/common_reg.v
+    Info: Found entity 1: common_reg
+Info: Found 1 design units, including 1 entities, in source file src/sram_ctrl.v
+    Info: Found entity 1: sram_ctrl
+Info: Found 1 design units, including 1 entities, in source file src/cpu_if.v
+    Info: Found entity 1: cpu_if
+Info: Found 1 design units, including 1 entities, in source file src/lcd_ctrl.v
+    Info: Found entity 1: lcd_ctrl
+Warning (10275): Verilog HDL Module Instantiation warning at key.v(57): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at key.v(71): ignored dangling comma in List of Port Connections
+Warning (10238): Verilog Module Declaration warning at key.v(18): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "key"
+Info: Found 1 design units, including 1 entities, in source file src/key/key.v
+    Info: Found entity 1: key
+Warning (10238): Verilog Module Declaration warning at key_reg.v(19): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "key_reg"
+Info: Found 1 design units, including 1 entities, in source file src/key/key_reg.v
+    Info: Found entity 1: key_reg
+Warning (10238): Verilog Module Declaration warning at key_ctrl.v(15): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "key_ctrl"
+Info: Found 1 design units, including 1 entities, in source file src/key/key_ctrl.v
+    Info: Found entity 1: key_ctrl
+Info: Found 1 design units, including 1 entities, in source file src/sd/sd.v
+    Info: Found entity 1: sd
+Info: Found 1 design units, including 1 entities, in source file src/sd/sd_reg.v
+    Info: Found entity 1: sd_reg
+Info: Found 1 design units, including 1 entities, in source file src/sd/sd_ctrl.v
+    Info: Found entity 1: sd_ctrl
+Warning (10275): Verilog HDL Module Instantiation warning at ec11b.v(61): ignored dangling comma in List of Port Connections
+Warning (10275): Verilog HDL Module Instantiation warning at ec11b.v(79): ignored dangling comma in List of Port Connections
+Warning (10238): Verilog Module Declaration warning at ec11b.v(21): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "ec11b"
+Info: Found 1 design units, including 1 entities, in source file src/ec11b/ec11b.v
+    Info: Found entity 1: ec11b
+Warning (10238): Verilog Module Declaration warning at ec11b_reg.v(18): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "ec11b_reg"
+Info: Found 1 design units, including 1 entities, in source file src/ec11b/ec11b_reg.v
+    Info: Found entity 1: ec11b_reg
+Warning (10238): Verilog Module Declaration warning at ec11b_ctrl.v(16): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "ec11b_ctrl"
+Info: Found 1 design units, including 1 entities, in source file src/ec11b/ec11b_ctrl.v
+    Info: Found entity 1: ec11b_ctrl
+Warning (10236): Verilog HDL Implicit Net warning at max51_top.v(303): created implicit net for "mcu_int4"
+Warning (10236): Verilog HDL Implicit Net warning at ec11b_reg.v(39): created implicit net for "ec11b_int_i"
+Warning (10236): Verilog HDL Implicit Net warning at ec11b_ctrl.v(85): created implicit net for "axi_posedge"
+Warning (10236): Verilog HDL Implicit Net warning at ec11b_ctrl.v(86): created implicit net for "axi_negedge"
+Warning (10236): Verilog HDL Implicit Net warning at ec11b_ctrl.v(87): created implicit net for "clr_posedge"
+Info: Elaborating entity "max51_top" for the top level hierarchy
+Warning (10858): Verilog HDL warning at max51_top.v(145): object key_value used but never assigned
+Warning (10030): Net "key_value" at max51_top.v(145) has no driver or initial value, using a default initial value '0'
+Warning (10034): Output port "spi_nCS" at max51_top.v(108) has no driver
+Warning (10034): Output port "spi_CLK" at max51_top.v(109) has no driver
+Warning (10034): Output port "spi_MOSI" at max51_top.v(110) has no driver
+Warning (10034): Output port "iic_SCL" at max51_top.v(115) has no driver
+Warning (10034): Output port "iic_WP" at max51_top.v(116) has no driver
+Info: Elaborating entity "cpu_if" for hierarchy "cpu_if:inst_cpu_if"
+Warning (10240): Verilog HDL Always Construct warning at cpu_if.v(136): inferring latch(es) for variable "mcu_cs_o8", which holds its previous value in one or more paths through the always construct
+Info (10264): Verilog HDL Case Statement information at cpu_if.v(164): all case item expressions in this case statement are onehot
+Info (10041): Inferred latch for "mcu_cs_o8[0]" at cpu_if.v(136)
+Info (10041): Inferred latch for "mcu_cs_o8[1]" at cpu_if.v(136)
+Info (10041): Inferred latch for "mcu_cs_o8[2]" at cpu_if.v(136)
+Info (10041): Inferred latch for "mcu_cs_o8[3]" at cpu_if.v(136)
+Info (10041): Inferred latch for "mcu_cs_o8[4]" at cpu_if.v(136)
+Info (10041): Inferred latch for "mcu_cs_o8[5]" at cpu_if.v(136)
+Info (10041): Inferred latch for "mcu_cs_o8[6]" at cpu_if.v(136)
+Info (10041): Inferred latch for "mcu_cs_o8[7]" at cpu_if.v(136)
+Info: Elaborating entity "sram_ctrl" for hierarchy "sram_ctrl:inst_sram_ctrl"
+Info: Elaborating entity "lcd_ctrl" for hierarchy "lcd_ctrl:inst_lcd_ctrl"
+Info: Elaborating entity "common_reg" for hierarchy "common_reg:inst_common_reg"
+Warning (10240): Verilog HDL Always Construct warning at common_reg.v(45): inferring latch(es) for variable "mcu_rddat_o8", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at common_reg.v(64): inferring latch(es) for variable "sound_o", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at common_reg.v(64): inferring latch(es) for variable "led_o8", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at common_reg.v(64): inferring latch(es) for variable "lcd_rst_o", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at common_reg.v(64): inferring latch(es) for variable "lcd_bk_o", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at common_reg.v(64): inferring latch(es) for variable "test_r", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "test_r[0]" at common_reg.v(72)
+Info (10041): Inferred latch for "test_r[1]" at common_reg.v(72)
+Info (10041): Inferred latch for "test_r[2]" at common_reg.v(72)
+Info (10041): Inferred latch for "test_r[3]" at common_reg.v(72)
+Info (10041): Inferred latch for "test_r[4]" at common_reg.v(72)
+Info (10041): Inferred latch for "test_r[5]" at common_reg.v(72)
+Info (10041): Inferred latch for "test_r[6]" at common_reg.v(72)
+Info (10041): Inferred latch for "test_r[7]" at common_reg.v(72)
+Info (10041): Inferred latch for "lcd_bk_o" at common_reg.v(72)
+Info (10041): Inferred latch for "lcd_rst_o" at common_reg.v(72)
+Info (10041): Inferred latch for "led_o8[0]" at common_reg.v(72)
+Info (10041): Inferred latch for "led_o8[1]" at common_reg.v(72)
+Info (10041): Inferred latch for "led_o8[2]" at common_reg.v(72)
+Info (10041): Inferred latch for "led_o8[3]" at common_reg.v(72)
+Info (10041): Inferred latch for "led_o8[4]" at common_reg.v(72)
+Info (10041): Inferred latch for "led_o8[5]" at common_reg.v(72)
+Info (10041): Inferred latch for "led_o8[6]" at common_reg.v(72)
+Info (10041): Inferred latch for "led_o8[7]" at common_reg.v(72)
+Info (10041): Inferred latch for "sound_o" at common_reg.v(72)
+Info (10041): Inferred latch for "mcu_rddat_o8[0]" at common_reg.v(47)
+Info (10041): Inferred latch for "mcu_rddat_o8[1]" at common_reg.v(47)
+Info (10041): Inferred latch for "mcu_rddat_o8[2]" at common_reg.v(47)
+Info (10041): Inferred latch for "mcu_rddat_o8[3]" at common_reg.v(47)
+Info (10041): Inferred latch for "mcu_rddat_o8[4]" at common_reg.v(47)
+Info (10041): Inferred latch for "mcu_rddat_o8[5]" at common_reg.v(47)
+Info (10041): Inferred latch for "mcu_rddat_o8[6]" at common_reg.v(47)
+Info (10041): Inferred latch for "mcu_rddat_o8[7]" at common_reg.v(47)
+Info: Elaborating entity "sd" for hierarchy "sd:inst_sd"
+Info: Elaborating entity "sd_reg" for hierarchy "sd:inst_sd|sd_reg:inst_sd_reg"
+Warning (10240): Verilog HDL Always Construct warning at sd_reg.v(47): inferring latch(es) for variable "mcu_rddat_o8", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at sd_reg.v(65): inferring latch(es) for variable "ssptdat_o8", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at sd_reg.v(65): inferring latch(es) for variable "ssppres_o8", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at sd_reg.v(65): inferring latch(es) for variable "test_r8", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "test_r8[0]" at sd_reg.v(71)
+Info (10041): Inferred latch for "test_r8[1]" at sd_reg.v(71)
+Info (10041): Inferred latch for "test_r8[2]" at sd_reg.v(71)
+Info (10041): Inferred latch for "test_r8[3]" at sd_reg.v(71)
+Info (10041): Inferred latch for "test_r8[4]" at sd_reg.v(71)
+Info (10041): Inferred latch for "test_r8[5]" at sd_reg.v(71)
+Info (10041): Inferred latch for "test_r8[6]" at sd_reg.v(71)
+Info (10041): Inferred latch for "test_r8[7]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssppres_o8[0]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssppres_o8[1]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssppres_o8[2]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssppres_o8[3]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssppres_o8[4]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssppres_o8[5]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssppres_o8[6]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssppres_o8[7]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssptdat_o8[0]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssptdat_o8[1]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssptdat_o8[2]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssptdat_o8[3]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssptdat_o8[4]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssptdat_o8[5]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssptdat_o8[6]" at sd_reg.v(71)
+Info (10041): Inferred latch for "ssptdat_o8[7]" at sd_reg.v(71)
+Info (10041): Inferred latch for "mcu_rddat_o8[0]" at sd_reg.v(49)
+Info (10041): Inferred latch for "mcu_rddat_o8[1]" at sd_reg.v(49)
+Info (10041): Inferred latch for "mcu_rddat_o8[2]" at sd_reg.v(49)
+Info (10041): Inferred latch for "mcu_rddat_o8[3]" at sd_reg.v(49)
+Info (10041): Inferred latch for "mcu_rddat_o8[4]" at sd_reg.v(49)
+Info (10041): Inferred latch for "mcu_rddat_o8[5]" at sd_reg.v(49)
+Info (10041): Inferred latch for "mcu_rddat_o8[6]" at sd_reg.v(49)
+Info (10041): Inferred latch for "mcu_rddat_o8[7]" at sd_reg.v(49)
+Info: Elaborating entity "sd_ctrl" for hierarchy "sd:inst_sd|sd_ctrl:inst_sd_ctrl"
+Warning (10240): Verilog HDL Always Construct warning at sd_ctrl.v(168): inferring latch(es) for variable "shift_ok", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at sd_ctrl.v(168): inferring latch(es) for variable "nstate", which holds its previous value in one or more paths through the always construct
+Warning (10034): Output port "current_state_dgo" at sd_ctrl.v(45) has no driver
+Info (10041): Inferred latch for "nstate.NEGEDGE" at sd_ctrl.v(168)
+Info (10041): Inferred latch for "nstate.POSEDGE" at sd_ctrl.v(168)
+Info (10041): Inferred latch for "nstate.IDLE" at sd_ctrl.v(168)
+Info (10041): Inferred latch for "shift_ok" at sd_ctrl.v(168)
+Info: Elaborating entity "ec11b" for hierarchy "ec11b:inst_ec11b"
+Info: Elaborating entity "ec11b_reg" for hierarchy "ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg"
+Warning (10036): Verilog HDL or VHDL warning at ec11b_reg.v(39): object "ec11b_int_i" assigned a value but never read
+Warning (10240): Verilog HDL Always Construct warning at ec11b_reg.v(50): inferring latch(es) for variable "mcu_rddat_o8", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at ec11b_reg.v(69): inferring latch(es) for variable "test_r8", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at ec11b_reg.v(69): inferring latch(es) for variable "mcu_intmsk_r", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at ec11b_reg.v(69): inferring latch(es) for variable "ec11b_clr_r", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "ec11b_clr_r" at ec11b_reg.v(75)
+Info (10041): Inferred latch for "mcu_intmsk_r" at ec11b_reg.v(75)
+Info (10041): Inferred latch for "test_r8[0]" at ec11b_reg.v(75)
+Info (10041): Inferred latch for "test_r8[1]" at ec11b_reg.v(75)
+Info (10041): Inferred latch for "test_r8[2]" at ec11b_reg.v(75)
+Info (10041): Inferred latch for "test_r8[3]" at ec11b_reg.v(75)
+Info (10041): Inferred latch for "test_r8[4]" at ec11b_reg.v(75)
+Info (10041): Inferred latch for "test_r8[5]" at ec11b_reg.v(75)
+Info (10041): Inferred latch for "test_r8[6]" at ec11b_reg.v(75)
+Info (10041): Inferred latch for "test_r8[7]" at ec11b_reg.v(75)
+Info (10041): Inferred latch for "mcu_rddat_o8[0]" at ec11b_reg.v(52)
+Info (10041): Inferred latch for "mcu_rddat_o8[1]" at ec11b_reg.v(52)
+Info (10041): Inferred latch for "mcu_rddat_o8[2]" at ec11b_reg.v(52)
+Info (10041): Inferred latch for "mcu_rddat_o8[3]" at ec11b_reg.v(52)
+Info (10041): Inferred latch for "mcu_rddat_o8[4]" at ec11b_reg.v(52)
+Info (10041): Inferred latch for "mcu_rddat_o8[5]" at ec11b_reg.v(52)
+Info (10041): Inferred latch for "mcu_rddat_o8[6]" at ec11b_reg.v(52)
+Info (10041): Inferred latch for "mcu_rddat_o8[7]" at ec11b_reg.v(52)
+Info: Elaborating entity "ec11b_ctrl" for hierarchy "ec11b:inst_ec11b|ec11b_ctrl:inst_ec11b_ctrl"
+Warning (10230): Verilog HDL assignment warning at ec11b_ctrl.v(54): truncated value with size 32 to match size of target (16)
+Info (10264): Verilog HDL Case Statement information at ec11b_ctrl.v(105): all case item expressions in this case statement are onehot
+Info: Elaborating entity "key" for hierarchy "key:inst_key"
+Info: Elaborating entity "key_reg" for hierarchy "key:inst_key|key_reg:inst_key_reg"
+Warning (10240): Verilog HDL Always Construct warning at key_reg.v(48): inferring latch(es) for variable "mcu_rddat_o8", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at key_reg.v(69): inferring latch(es) for variable "test_r8", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at key_reg.v(69): inferring latch(es) for variable "key_intmsk_r", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at key_reg.v(69): inferring latch(es) for variable "key_clr_o", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "key_clr_o" at key_reg.v(75)
+Info (10041): Inferred latch for "key_intmsk_r" at key_reg.v(75)
+Info (10041): Inferred latch for "test_r8[0]" at key_reg.v(75)
+Info (10041): Inferred latch for "test_r8[1]" at key_reg.v(75)
+Info (10041): Inferred latch for "test_r8[2]" at key_reg.v(75)
+Info (10041): Inferred latch for "test_r8[3]" at key_reg.v(75)
+Info (10041): Inferred latch for "test_r8[4]" at key_reg.v(75)
+Info (10041): Inferred latch for "test_r8[5]" at key_reg.v(75)
+Info (10041): Inferred latch for "test_r8[6]" at key_reg.v(75)
+Info (10041): Inferred latch for "test_r8[7]" at key_reg.v(75)
+Info (10041): Inferred latch for "mcu_rddat_o8[0]" at key_reg.v(50)
+Info (10041): Inferred latch for "mcu_rddat_o8[1]" at key_reg.v(50)
+Info (10041): Inferred latch for "mcu_rddat_o8[2]" at key_reg.v(50)
+Info (10041): Inferred latch for "mcu_rddat_o8[3]" at key_reg.v(50)
+Info (10041): Inferred latch for "mcu_rddat_o8[4]" at key_reg.v(50)
+Info (10041): Inferred latch for "mcu_rddat_o8[5]" at key_reg.v(50)
+Info (10041): Inferred latch for "mcu_rddat_o8[6]" at key_reg.v(50)
+Info (10041): Inferred latch for "mcu_rddat_o8[7]" at key_reg.v(50)
+Info: Elaborating entity "key_ctrl" for hierarchy "key:inst_key|key_ctrl:inst_key_ctrl"
+Warning (10230): Verilog HDL assignment warning at key_ctrl.v(37): truncated value with size 4 to match size of target (3)
+Warning (10230): Verilog HDL assignment warning at key_ctrl.v(54): truncated value with size 32 to match size of target (6)
+Warning (10235): Verilog HDL Always Construct warning at key_ctrl.v(123): variable "key_flag" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10270): Verilog HDL Case Statement warning at key_ctrl.v(125): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at key_ctrl.v(121): inferring latch(es) for variable "key_r", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "key_r[0]" at key_ctrl.v(121)
+Info (10041): Inferred latch for "key_r[1]" at key_ctrl.v(121)
+Info (10041): Inferred latch for "key_r[2]" at key_ctrl.v(121)
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "key:inst_key|int_w8[7]" is missing source, defaulting to GND
+    Warning (12110): Net "key:inst_key|int_w8[6]" is missing source, defaulting to GND
+    Warning (12110): Net "key:inst_key|int_w8[5]" is missing source, defaulting to GND
+    Warning (12110): Net "key:inst_key|int_w8[4]" is missing source, defaulting to GND
+    Warning (12110): Net "key:inst_key|int_w8[3]" is missing source, defaulting to GND
+    Warning (12110): Net "key:inst_key|int_w8[2]" is missing source, defaulting to GND
+    Warning (12110): Net "key:inst_key|int_w8[1]" is missing source, defaulting to GND
+    Warning (12110): Net "key:inst_key|key_w8[7]" is missing source, defaulting to GND
+    Warning (12110): Net "key:inst_key|key_w8[6]" is missing source, defaulting to GND
+    Warning (12110): Net "key:inst_key|key_w8[5]" is missing source, defaulting to GND
+    Warning (12110): Net "key:inst_key|key_w8[4]" is missing source, defaulting to GND
+    Warning (12110): Net "key:inst_key|key_w8[3]" is missing source, defaulting to GND
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "ec11b:inst_ec11b|clr_w[7]" is missing source, defaulting to GND
+    Warning (12110): Net "ec11b:inst_ec11b|clr_w[6]" is missing source, defaulting to GND
+    Warning (12110): Net "ec11b:inst_ec11b|clr_w[5]" is missing source, defaulting to GND
+    Warning (12110): Net "ec11b:inst_ec11b|clr_w[4]" is missing source, defaulting to GND
+    Warning (12110): Net "ec11b:inst_ec11b|clr_w[3]" is missing source, defaulting to GND
+    Warning (12110): Net "ec11b:inst_ec11b|clr_w[2]" is missing source, defaulting to GND
+    Warning (12110): Net "ec11b:inst_ec11b|clr_w[1]" is missing source, defaulting to GND
+Warning: Clock multiplexers are found and protected
+    Warning: Found clock multiplexer sd:inst_sd|sd_ctrl:inst_sd_ctrl|Mux0
+Warning: Tri-state node(s) do not directly drive top-level pin(s)
+    Warning: Converted tri-state buffer "lcd_ctrl:inst_lcd_ctrl|mcu_rddat_o8[0]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "lcd_ctrl:inst_lcd_ctrl|mcu_rddat_o8[1]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "lcd_ctrl:inst_lcd_ctrl|mcu_rddat_o8[2]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "lcd_ctrl:inst_lcd_ctrl|mcu_rddat_o8[3]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "lcd_ctrl:inst_lcd_ctrl|mcu_rddat_o8[4]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "lcd_ctrl:inst_lcd_ctrl|mcu_rddat_o8[5]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "lcd_ctrl:inst_lcd_ctrl|mcu_rddat_o8[6]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "lcd_ctrl:inst_lcd_ctrl|mcu_rddat_o8[7]" feeding internal logic into a wire
+Warning: 7 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning: The following bidir pins have no drivers
+    Warning: Bidir "iic_SDA" has no driver
+Warning: Latch ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|mcu_intmsk_r has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal cpu_if:inst_cpu_if|cpu_addr[3]
+Warning: Latch sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.POSEDGE_439 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE
+Warning: Latch ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|ec11b_clr_r has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal cpu_if:inst_cpu_if|cpu_addr[3]
+Warning: Latch sd:inst_sd|sd_ctrl:inst_sd_ctrl|nstate.IDLE_451 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.IDLE
+Warning: Latch ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal cpu_if:inst_cpu_if|cpu_addr[3]
+Warning: Latch ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal cpu_if:inst_cpu_if|cpu_addr[3]
+Warning: Latch ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal cpu_if:inst_cpu_if|cpu_addr[3]
+Warning: Latch ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal cpu_if:inst_cpu_if|cpu_addr[3]
+Warning: Latch ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal cpu_if:inst_cpu_if|cpu_addr[3]
+Warning: Latch ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal cpu_if:inst_cpu_if|cpu_addr[3]
+Warning: Latch ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal cpu_if:inst_cpu_if|cpu_addr[3]
+Warning: Latch ec11b:inst_ec11b|ec11b_reg:inst_ec11b_reg|test_r8[7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal cpu_if:inst_cpu_if|cpu_addr[3]
+Warning: Latch sd:inst_sd|sd_ctrl:inst_sd_ctrl|shift_ok has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal sd:inst_sd|sd_ctrl:inst_sd_ctrl|current_state.NEGEDGE
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "CPU_INT1_o" is stuck at GND
+    Warning (13410): Pin "V3_AD_nOE_o" is stuck at GND
+    Warning (13410): Pin "SD_nCS_i" is stuck at GND
+    Warning (13410): Pin "LED_o8[0]" is stuck at VCC
+    Warning (13410): Pin "LED_o8[1]" is stuck at VCC
+    Warning (13410): Pin "LED_o8[2]" is stuck at VCC
+    Warning (13410): Pin "LED_o8[3]" is stuck at GND
+    Warning (13410): Pin "LED_o8[4]" is stuck at GND
+    Warning (13410): Pin "LED_o8[5]" is stuck at GND
+    Warning (13410): Pin "LED_o8[6]" is stuck at GND
+    Warning (13410): Pin "spi_nCS" is stuck at GND
+    Warning (13410): Pin "spi_CLK" is stuck at GND
+    Warning (13410): Pin "spi_MOSI" is stuck at GND
+    Warning (13410): Pin "iic_SCL" is stuck at GND
+    Warning (13410): Pin "iic_WP" is stuck at GND
+Info: Registers with preset signals will power-up high
+Info: 9 registers lost all their fanouts during netlist optimizations. The first 9 are displayed below.
+    Info: Register "key:inst_key|key_ctrl:inst_key_ctrl|state~4" lost all its fanouts during netlist optimizations.
+    Info: Register "sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~7" lost all its fanouts during netlist optimizations.
+    Info: Register "sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~8" lost all its fanouts during netlist optimizations.
+    Info: Register "sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~9" lost all its fanouts during netlist optimizations.
+    Info: Register "sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~10" lost all its fanouts during netlist optimizations.
+    Info: Register "sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~11" lost all its fanouts during netlist optimizations.
+    Info: Register "sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~12" lost all its fanouts during netlist optimizations.
+    Info: Register "sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt~13" lost all its fanouts during netlist optimizations.
+    Info: Register "sd:inst_sd|sd_ctrl:inst_sd_ctrl|dycnt.00000000" lost all its fanouts during netlist optimizations.
+Warning: Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CPU_LIB_i"
+    Warning (15610): No output dependent on input pin "SD_CD_i"
+    Warning (15610): No output dependent on input pin "EC11E_D_i"
+    Warning (15610): No output dependent on input pin "spi_MISO"
+Info: Implemented 488 device resources after synthesis - the final resource count might be different
+    Info: Implemented 25 input pins
+    Info: Implemented 47 output pins
+    Info: Implemented 17 bidirectional pins
+    Info: Implemented 399 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 135 warnings
+    Info: Peak virtual memory: 244 megabytes
+    Info: Processing ended: Sun Dec 13 00:34:52 2015
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:04
+
+
